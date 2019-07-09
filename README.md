@@ -3,7 +3,7 @@
 ...aplicar en la consola en la ruta del proyecto:
 
 npm install @angular-devkit/build-angular
-...En caso de que no se solucione aplicar esto de la siguiente manera:
+>>>>...En caso de que no se solucione aplicar esto de la siguiente manera:
 
 npm i --only=dev
 npm install @angular-devkit/build-angular
