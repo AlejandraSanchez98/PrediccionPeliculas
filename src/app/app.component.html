@@ -1,22 +1,82 @@
-<header>
-  <h3 class="w3-center">ProfeciaFilm</h3>
-  <div style="text-align: center">
-      <a href="#"><i class="fa fa-home icono" ></i></a>
-      <a href="#"><i class="fa fa-line-chart icono" ></i></a>
-      <a href="#"><i class="fa fa-plus-circle icono"></i></a>
-  </div>
-</header>
-<div class="sidebar">
-  <h4 class="w3-center">Generos</h4>
-  <a [routerLink]="['/']" >Drama</a>
-  <a [routerLink]="['/']">Acción</a>
-  <a [routerLink]="['/']">Comedia</a>
-  <a [routerLink]="['/']">Ciencia Ficción</a>
-  <a [routerLink]="['/']">Terror</a>
-  <a [routerLink]="['/']">Aventuras</a>
-  <a [routerLink]="['/']">Animación</a>
-  <a [routerLink]="['/']">Romance</a>
+<div class="w3-row">
+  <header>
+    <div class="w3-col m2">
+      <img class="logo" src="../assets/img/Profecia.png">
+    </div>
+    <div class="w3-col m10">
+      <h3 class="w3-center"><b>ProfeciaFilm</b></h3>
+      <div style="text-align: center">
+        <a href="#"><i class="fa fa-home icono" ></i></a>
+        <a href="#"><i class="fa fa-line-chart icono" ></i></a>
+        <a href="#"><i class="fa fa-plus-circle icono"></i></a>
+      </div>
+    </div>
+  </header>
 </div>
 
 
-<router-outlet></router-outlet>
+<div class="w3-row">
+  <div class="w3-col m2">
+    <div class="sidebar">
+      <h2 class="w3-center"><b>Generos</b></h2>
+      <a [routerLink]="['/']" >Drama</a>
+      <a [routerLink]="['/']">Acción</a>
+      <a [routerLink]="['/']">Comedia</a>
+      <a [routerLink]="['/']">Ciencia Ficción</a>
+      <a [routerLink]="['/']">Terror</a>
+      <a [routerLink]="['/']">Aventuras</a>
+      <a [routerLink]="['/']">Animación</a>
+      <a [routerLink]="['/']">Romance</a>
+    </div>    
+  </div>
+  <div id="idContenido" class="w3-col m10">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<footer>
+  <div class="w3-row">
+    <div class="w3-col m4">
+        <h4><b>¿Quienes somos?</b></h4>
+        <p>ProfeciaFilm</p>
+    </div>
+    <div class="w3-col m4">
+        <h4><b>Redes Sociales</b></h4>
+				<div class="row">
+					<img src="../assets/img/icons/facebook.png">
+					<label>Siguenos en Facebook</label>
+				</div>
+				<div class="row">
+					<img src="../assets/img/icons/twitter.png">
+					<label>Siguenos en Twitter</label>
+				</div>
+				<div class="row">
+					<img src="../assets/img/icons/instagram.png">
+					<label>Siguenos en Instagram</label>
+				</div>
+				<div class="row">
+					<img src="../assets/img/icons/youtube.png">
+					<label>Siguenos en Youtube</label>
+				</div>
+    </div>
+    <div class="w3-col m4">
+      <h4><b>Informacion Contanto</b></h4>
+      <div class="row" style="padding-top: 50px;">
+        <img src="../assets/img/icons/contact.png">
+        <label>ProfeciaFilm@gmail.com</label>
+      </div>
+    </div>
+  </div>
+  <div class="container-footer">
+    <div class="footer">
+      <div class="copyright">
+        © 2019 Todos los Derechos Reservados | <a href="">ProfeciaFilm</a>
+      </div>
+      <div class="information">
+        <a href="">Compañia</a> | <a href="">Privacion y Politica</a> | <a href="">Terminos y Condiciones</a> | <a href="">Preguntas Frecuentes</a> | <a href="">Ayuda</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
