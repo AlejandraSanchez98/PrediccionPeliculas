@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,6 +8,7 @@ export class ApiService {
   constructor(public http:HttpClient) { }
 
   public mostrarPeliculas(){
-    return this.http.get('http://localhost/apiPeliculas/peliculas/pelicula.php')
+    //let headers = new HttpHeaders();
+    return this.http.get('http://localhost/apiPeliculas/peliculas/pelicula.php');
   }
 }

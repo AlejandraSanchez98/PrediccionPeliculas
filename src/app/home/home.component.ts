@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     /*PRACTICAMENTE SERIA AQUI UN SELECT * FROM DE PELICULAS, UNICAMENTE DEJANDO LA IMAGEN*/
+    this.mostrarPeliculas();
   }
 
 }
