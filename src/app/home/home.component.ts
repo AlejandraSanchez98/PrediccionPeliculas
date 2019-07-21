@@ -39,7 +39,8 @@ export class HomeComponent implements OnInit {
     this.API.mostrarPeliculas().subscribe(
       (success:any)=>{
         console.log("exito!: "+ success);
-        this.arregloPeliculas = success.respuesta;
+        this.arregloPeliculas = success;
+        console.log(JSON.stringify(this.arregloPeliculas))
       },
       (error)=>{
         console.log(error);
