@@ -9,6 +9,6 @@ export class ApiService {
 
   public mostrarPeliculas(){
     //let headers = new HttpHeaders();
-    return this.http.get('http://localhost/apiPeliculas/peliculas/pelicula.php');
+    return this.http.get('http://localhost/apiPeliculas/guionistas/guionista.php');
   }
 }

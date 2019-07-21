@@ -4,8 +4,8 @@
  include("../conexion.php");
  include("clsPelicula.php");
 
- $objPeli = new Pelicula();
- $arreglo = $objPeli->cargar();
+ $objPelic = new Pelicula();
+ $arreglo = $objPelic->cargar();
 
  echo(json_encode($arreglo));
  ?>
