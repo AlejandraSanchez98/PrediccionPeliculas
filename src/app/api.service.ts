@@ -8,6 +8,6 @@ export class ApiService {
   constructor(public http:HttpClient) { }
 
   public mostrarPeliculas(){
-    return this.http.get('http://localhost/apiPeliculas/guionistas/pelicula.php');
+    return this.http.get('http://localhost/apiPeliculas/peliculas/pelicula.php');
   }
 }

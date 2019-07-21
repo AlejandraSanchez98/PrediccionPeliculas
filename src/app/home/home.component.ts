@@ -24,9 +24,9 @@ interface IInformacionPeliculas{
 export class HomeComponent implements OnInit {
 
   //PROPIEDADES:
-  public arregloPelicula: IInformacionPeliculas[];
+  public arregloPeliculas: IInformacionPeliculas[];
   constructor(public router: Router, public API:ApiService) {
-    this.arregloPelicula = [];
+    this.arregloPeliculas = [];
   }
 
   //FILTRA SOLO LA INFORMACION DE LA PELICULA SELECCIONADA
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     this.API.mostrarPeliculas().subscribe(
       (success:any)=>{
         console.log("exito!: "+ success);
-        this.arregloPelicula = success.respuesta;
+        this.arregloPeliculas = success.respuesta;
       },
       (error)=>{
         console.log(error);
