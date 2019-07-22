@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient,HttpParams,HttpHeaders} from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+
+
 interface IInformacionPeliculas{
-  Id_pelicula: number;
+  Id_peliculas: number;
   tituloPelicula: string;
   imagenPelicula: string;
   generoPelicula: string;
@@ -19,17 +22,20 @@ interface IInformacionPeliculas{
 })
 export class InformacionPeliculasComponent implements OnInit {
   //PROPIEDADES:
+  public headers =  new HttpHeaders();
   arregloPeliculas: IInformacionPeliculas[];
   public valoracionDirector:number;
   public valoracionGuionista:number;
   public valoracionActores:number;
   public valoracionProductor:number;
-  constructor(public API:ApiService, public http: HttpClient) {
+  public Id_peliculas:string;
+  constructor(public route:ActivatedRoute,public API:ApiService, public http: HttpClient) {
     this.valoracionDirector = 5;
     this.valoracionGuionista = 5;
     this.valoracionActores = 10;
     this.valoracionProductor = 10;
     this.arregloPeliculas = [];
+
   }
 
   //ESTE METODO PROMEDIA LAS VALORACIONES DE CADA UNO DE LOS ELEMENTOS INVOLUCRADOS
@@ -43,17 +49,15 @@ export class InformacionPeliculasComponent implements OnInit {
 
 
   public mostrarInformacion(){
-    this.API.mostrarPeliculas().subscribe(
-        (success:any)=>{
-          console.log(success);
-          alert(JSON.stringify(success));
-          this.arregloPeliculas = success.respuesta;
-        },
-        (error)=>{
-          console.log(error);
-          console.log("NO ENTRO!!");
+    this.route.queryParams.subscribe((params: any) => {
+      this.Id_peliculas = params['Id_peliculas'];
+      alert(JSON.stringify(this.Id_peliculas));
+      return this.http.post('http://localhost/apiPeliculas/peliculas/mostrarxPelicula.php',{Id_peliculas:this.Id_peliculas},{headers:this.headers}).subscribe(response=>{
+         alert(JSON.stringify(response));
+       }), error =>{
+          alert("Tienes un error:"+ error.error);
         }
-      );
+    });
   }
 
 
@@ -66,6 +70,12 @@ export class InformacionPeliculasComponent implements OnInit {
 
   ngOnInit() {
     this.mostrarInformacion();
+
+    /*this.route.queryParams.subscribe((params: any) => {
+      this.Id_peliculas = params['Id_peliculas'];
+      alert(JSON.stringify(this.Id_peliculas));
+
+    });*/
   }
 
 }
