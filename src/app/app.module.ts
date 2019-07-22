@@ -8,6 +8,7 @@ import { InformacionPeliculasComponent } from './informacion-peliculas/informaci
 import {MatTabsModule} from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient} from '@angular/common/http';
+import {HttpParams} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
@@ -20,11 +21,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     ApiService,
-    HttpClient
+    HttpClient,
+    HttpParams
   ],
   bootstrap: [AppComponent]
 })

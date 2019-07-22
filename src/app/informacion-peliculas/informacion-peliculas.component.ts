@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { ApiService } from '../api.service';
 interface IInformacionPeliculas{
-  idPelicula: number;
+  Id_pelicula: number;
   tituloPelicula: string;
   imagenPelicula: string;
   generoPelicula: string;
@@ -17,17 +19,17 @@ interface IInformacionPeliculas{
 })
 export class InformacionPeliculasComponent implements OnInit {
   //PROPIEDADES:
-  arregloPelicula: IInformacionPeliculas[];
+  arregloPeliculas: IInformacionPeliculas[];
   public valoracionDirector:number;
   public valoracionGuionista:number;
   public valoracionActores:number;
   public valoracionProductor:number;
-  constructor() {
+  constructor(public API:ApiService, public http: HttpClient) {
     this.valoracionDirector = 5;
     this.valoracionGuionista = 5;
     this.valoracionActores = 10;
     this.valoracionProductor = 10;
-    this.arregloPelicula = [];
+    this.arregloPeliculas = [];
   }
 
   //ESTE METODO PROMEDIA LAS VALORACIONES DE CADA UNO DE LOS ELEMENTOS INVOLUCRADOS
@@ -37,7 +39,23 @@ export class InformacionPeliculasComponent implements OnInit {
     calificacionFinal = ((this.valoracionDirector +  this.valoracionGuionista + this.valoracionActores + this.valoracionProductor) /4);
 
     return calificacionFinal;
-  }//fin promediar
+  }
+
+
+  public mostrarInformacion(){
+    this.API.mostrarPeliculas().subscribe(
+        (success:any)=>{
+          console.log(success);
+          alert(JSON.stringify(success));
+          this.arregloPeliculas = success.respuesta;
+        },
+        (error)=>{
+          console.log(error);
+          console.log("NO ENTRO!!");
+        }
+      );
+  }
+
 
 
     //MUESTRA LOS DATOS DE LA PELICULA
@@ -47,6 +65,7 @@ export class InformacionPeliculasComponent implements OnInit {
     }/*/
 
   ngOnInit() {
+    this.mostrarInformacion();
   }
 
 }

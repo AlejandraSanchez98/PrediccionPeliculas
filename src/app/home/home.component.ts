@@ -5,7 +5,7 @@ import { ApiService } from '../api.service';
 
 //CREACION DE INTERFACES
 interface IInformacionPeliculas{
-  idPelicula: number;
+  Id_pelicula: number;
   tituloPelicula: string;
   imagenPelicula: string;
   generoPelicula: string;
@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
   }
 
   //FILTRA SOLO LA INFORMACION DE LA PELICULA SELECCIONADA
-  public navegarxPelicula(idPelicula:number): void{
-    this.router.navigate(['/informacion-peliculas'],{queryParams:{idPelicula:idPelicula}});
+  public navegarxPelicula(Id_peliculas:number): void{
+    this.router.navigate(['/informacion-peliculas'],{queryParams:{Id_peliculas:Id_peliculas}});
   }
 
   //MUESTRA TODO EL CATALOGO DE PELICULAS

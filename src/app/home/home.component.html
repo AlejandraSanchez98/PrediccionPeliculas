@@ -3,7 +3,7 @@
         <img class="img" src="../../assets/img/peliculaPrueba.jpg" [routerLink]="['/informacion-peliculas']">
     </div>
     <div class="w3-col m2" *ngFor="let i of arregloPeliculas">
-        <img alt="cargando..." class="img" src="{{i.imagen}}" [routerLink]="['/informacion-peliculas']">
+        <img alt="cargando..." class="img" src="{{i.imagen}}" (click)="navegarxPelicula(i.Id_peliculas)">
     </div>
     <div class="w3-col m2">
         <img class="img" src="../../assets/img/pelicula3.jpg" [routerLink]="['/informacion-peliculas']">
