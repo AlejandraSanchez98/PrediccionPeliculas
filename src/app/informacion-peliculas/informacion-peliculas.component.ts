@@ -3,7 +3,6 @@ import { HttpClient,HttpParams,HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 
-
 interface IInformacionPeliculas{
   Id_peliculas: number;
   tituloPelicula: string;
@@ -28,7 +27,7 @@ export class InformacionPeliculasComponent implements OnInit {
   public valoracionGuionista:number;
   public valoracionActores:number;
   public valoracionProductor:number;
-  public Id_peliculas:string;
+  public Id_peliculas:number;
   constructor(public route:ActivatedRoute,public API:ApiService, public http: HttpClient) {
     this.valoracionDirector = 5;
     this.valoracionGuionista = 5;
@@ -49,8 +48,19 @@ export class InformacionPeliculasComponent implements OnInit {
 
 
   public mostrarInformacion(){
-   return this.API.mostrarxPelicula();
+    this.route.queryParams.subscribe((params: IInformacionPeliculas) => {
+    this.Id_peliculas = params['Id_peliculas'];
+    return this.API.mostrarxPelicula(this.Id_peliculas).subscribe(
+      (success:any)=>{
+        this.arregloPeliculas = success;
+        console.log("Pelicula: "+ JSON.stringify(this.arregloPeliculas));
+      },
+      (error)=>{
+        console.log("SIGUE INTENTANDO ANIMAL: "+ error);
+      }
+    );
   }
+);}
 
 
 
