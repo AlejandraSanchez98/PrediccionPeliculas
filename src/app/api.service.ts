@@ -2,6 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient,HttpParams,HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
+export interface IInformacionPeliculas{
+  Id_peliculas: number;
+  tituloPelicula: string;
+  imagenPelicula: string;
+  generoPelicula: string;
+  fechaEstrenoPelicula: string;
+  resumenPelicula: string;
+  paisOrigenPelicula: string;
+  duracionPelicula: string;
+  calificacionFinalPelicula: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
