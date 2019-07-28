@@ -49,15 +49,7 @@ export class InformacionPeliculasComponent implements OnInit {
 
 
   public mostrarInformacion(){
-    this.route.queryParams.subscribe((params: any) => {
-      this.Id_peliculas = params['Id_peliculas'];
-      alert(JSON.stringify(this.Id_peliculas));
-      return this.http.post('http://localhost/apiPeliculas/peliculas/mostrarxPelicula.php',{Id_peliculas:this.Id_peliculas},{headers:this.headers}).subscribe(response=>{
-         alert(JSON.stringify(response));
-       }), error =>{
-          alert("Tienes un error:"+ error.error);
-        }
-    });
+   return this.API.mostrarxPelicula();
   }
 
 

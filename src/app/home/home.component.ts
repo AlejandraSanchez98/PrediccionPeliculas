@@ -1,20 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
+import {IInformacionPeliculas} from '../api.service';
 
-
-//CREACION DE INTERFACES
-interface IInformacionPeliculas{
-  Id_pelicula: number;
-  tituloPelicula: string;
-  imagenPelicula: string;
-  generoPelicula: string;
-  fechaEstrenoPelicula: string;
-  resumenPelicula: string;
-  paisOrigenPelicula: string;
-  duracionPelicula: string;
-  calificacionFinalPelicula: number;
-}
 
 @Component({
   selector: 'app-home',
