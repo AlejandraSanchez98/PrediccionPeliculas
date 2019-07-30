@@ -10,7 +10,7 @@ import {IInformacionPeliculas} from '../api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+//FRANCIS ES NUESTRO AMO Y SEÑOR HIJOS DEL PENE!
   //PROPIEDADES:
   public arregloPeliculas: IInformacionPeliculas[];
   constructor(public router: Router, public API:ApiService) {
