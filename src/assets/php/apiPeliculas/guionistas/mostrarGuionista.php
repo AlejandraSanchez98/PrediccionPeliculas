@@ -12,7 +12,7 @@
   $objGuionista ->nombre=$_GET["nombre"];
   $objGuionista ->obras_previas=$_GET["obras_previas"];
   $objGuionista ->pais_guionista =$_GET["pais_guionista "];
-
+  
 
   $resultado = $objGuionista ->cargar();
 

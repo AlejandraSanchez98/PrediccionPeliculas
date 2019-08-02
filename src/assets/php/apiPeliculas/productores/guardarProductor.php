@@ -8,7 +8,7 @@
   include("clsProductor.php");
   include("../config.php");
   include("../conexion.php");
-
+  
   $objProductor = new Productor();
   $objProductor ->nombre_productor=$_GET["nombre_productor"];
   $objProductor ->obras_previas=$_GET["obras_previas"];
@@ -17,7 +17,7 @@
 
   $resultado = $objProductor >guardar();
 
-
+  
 
   $arregloResultado = array('resultado'=>$resultado);
   echo (json_encode($arregloResultado));

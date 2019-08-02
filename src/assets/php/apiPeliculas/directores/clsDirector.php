@@ -2,7 +2,7 @@
   class Director
   {
     private $conexion;
-    public $Id_director;
+    public $Id_dire;
     public $nombre_director;
     public $pais_director;
     public $obras_previas;
@@ -19,12 +19,12 @@
     }
     public function cargarxUsuario()
     {
-      $query = "SELECT * FROM director WHERE Id_director='{$this->Id_director}'";
+      $query = "SELECT * FROM director WHERE Id_dire='{$this->Id_dire}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function eliminar()
     {
-      $query = "DELETE FROM director WHERE Id_director='{$this->Id_director}'";
+      $query = "DELETE FROM director WHERE Id_dire='{$this->Id_dire}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function guardar()

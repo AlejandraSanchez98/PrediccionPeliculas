@@ -2,7 +2,7 @@
   class Guionista
   {
     private $conexion;
-    public $Id_guionista;
+    public $id_guio;
     public $nombre;
     public $obras_previas;
     public $pais_guionista;
@@ -19,12 +19,12 @@
     }
     public function cargarxUsuario()
     {
-      $query = "SELECT * FROM guionista WHERE Id_guionista='{$this->Id_guionista}'";
+      $query = "SELECT * FROM guionista WHERE id_guio='{$this->id_guio}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function eliminar()
     {
-      $query = "DELETE FROM guionista WHERE Id_guionista='{$this->Id_guionista}'";
+      $query = "DELETE FROM guionista WHERE id_guio='{$this->id_guio}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function guardar()

@@ -13,7 +13,7 @@
   $objActores->nombre_actor=$_GET["nombre_actor"];
   $objActores->pais_actor=$_GET["pais_actor"];
   $objActores->obras_previas=$_GET["obras_previas"];
-
+ 
 
   $resultado = $objActores->guardar();
 

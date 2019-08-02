@@ -2,7 +2,7 @@
   class Productor
   {
     private $conexion;
-    public $Id_productor ;
+    public $id_produc ;
     public $nombre_productor ;
     public $obras_previas;
     public $pais_productor;
@@ -18,12 +18,12 @@
     }
     public function cargarxUsuario()
     {
-      $query = "SELECT * FROM productor WHERE Id_productor ='{$this->Id_productor }'";
+      $query = "SELECT * FROM productor WHERE id_produc ='{$this->id_produc }'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function eliminar()
     {
-      $query = "DELETE FROM productor WHERE Id_productor ='{$this->Id_productor }'";
+      $query = "DELETE FROM productor WHERE id_produc ='{$this->id_produc }'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function guardar()

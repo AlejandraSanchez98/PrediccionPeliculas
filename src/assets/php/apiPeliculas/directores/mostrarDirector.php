@@ -12,7 +12,7 @@
   $objDirector->nombre_director=$_GET["nombre_director"];
   $objDirector->pais_director=$_GET["pais_director"];
   $objDirector->obras_previas=$_GET["obras_previas"];
-
+ 
   $resultado = $$objDirector->cargar();
 
   $arregloResultado = array('resultado'=>$resultado);
