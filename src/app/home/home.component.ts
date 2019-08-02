@@ -3,14 +3,14 @@ import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import {IInformacionPeliculas} from '../api.service';
 
-// const para WebScraping
+/* const para WebScraping
 const cheerio = require ('cheerio');
 const request = require('request');
 const fs = require('fs');
 const arrayPuntuaje = [];
 const arrayTitulo = [];
 const arrayImg = [];
-
+*/
 
 @Component({
   selector: 'app-home',
@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  public webScraping():void
+  /*public webScraping():void
   {
     var url = 'https://www.filmaffinity.com/mx/rdcat.php?id=upc_th_mx';
     request(url,function (error, response, html) { // solo es un callback
@@ -58,15 +58,15 @@ export class HomeComponent implements OnInit {
                   console.log((i + 1) + ' .- ' + puntuaje); // Muestra todos los valores encontrdos bajo esas etiquetas "span.note"
                   arrayPuntuaje.push(puntuaje); // arreglo para almacenar los puntuaje de las peliculas
           });
-           
+
       }
-  
+
       //Esta parte la puedes meter dentro de un ciclo para que relacione el puntuaje con su respesctivo Nombre de Pelicula
       console.log(arrayImg);
       console.log(arrayTitulo[0]+arrayPuntuaje[0]+arrayImg[0]);
   });
 
-  }
+}*/
 
 
   ngOnInit() {

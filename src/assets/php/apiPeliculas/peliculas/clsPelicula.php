@@ -41,11 +41,11 @@
       //$query = "SELECT PL.titulo_pelicula,  PL.fecha_estreno, PL.duracion_pelicula, PL.pais_pelicula, PL.genero_pelicula, PL.resumen_pelicula, PL.calificacion, GUI.nombre FROM pelicula PL JOIN guionista GUI WHERE PL.Id_pelis = GUI.id_guio;
 
      $query = "SELECT PL.titulo_pelicula,  PL.fecha_estreno, PL.duracion_pelicula, PL.pais_pelicula, PL.genero_pelicula, PL.resumen_pelicula, PL.calificacion, GUI.nombre, DIR.nombre_director, ACT.nombre_actor, PRO.nombre_productor
-      FROM pelicula PL 
-      INNER JOIN guionista GUI On PL.id_guio  = GUI.id_guio 
+      FROM pelicula PL
+      INNER JOIN guionista GUI On PL.id_guio  = GUI.id_guio
       INNER JOIN director DIR On PL.Id_dire  = DIR.Id_dire
       INNER JOIN autor ACT On PL.idActor = ACT.idActor
-      INNER JOIN Productor PRO On PL.id_produc  = PRO.id_produc  WHERE Id_pelis ='{$this->Id_pelis}'"; 
+      INNER JOIN productor PRO On PL.id_produc  = PRO.id_produc  WHERE Id_pelis ='{$this->Id_pelis}'"; 
 
       return $this->conexion->ejecutarQuery($query);
     }
