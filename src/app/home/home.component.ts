@@ -26,8 +26,8 @@ export class HomeComponent implements OnInit {
   }
 
   //FILTRA SOLO LA INFORMACION DE LA PELICULA SELECCIONADA
-  public navegarxPelicula(Id_peliculas:number): void{
-    this.router.navigate(['/informacion-peliculas'],{queryParams:{Id_peliculas:Id_peliculas}});
+  public navegarxPelicula(Id_pelis:number): void{
+    this.router.navigate(['/informacion-peliculas'],{queryParams:{Id_pelis:Id_pelis}});
   }
 
   //MUESTRA TODO EL CATALOGO DE PELICULAS

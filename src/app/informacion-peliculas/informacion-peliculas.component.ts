@@ -39,7 +39,7 @@ export class InformacionPeliculasComponent implements OnInit {
 
   public mostrarInformacion(){
     this.route.queryParams.subscribe((params: IInformacionPeliculas) => {
-    this.Id_peliculas = params['Id_peliculas'];
+    this.Id_peliculas = params['Id_pelis'];
     return this.API.mostrarxPelicula(this.Id_peliculas).subscribe(
       (success:any)=>{
         this.arregloPeliculas = success;
