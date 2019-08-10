@@ -27,5 +27,11 @@ export class ApiService {
 
   public mostrarxPelicula(id:number){
     return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?idPelicula='+id,{headers:this.headers});
-}
+  }
+
+
+  public webScraping(){
+    return this.http.get('http://localhost/web_scraping/hey.php');
+  }
+
 }

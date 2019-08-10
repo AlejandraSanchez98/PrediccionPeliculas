@@ -10,11 +10,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { ScrapingComponent } from './scraping/scraping.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InformacionPeliculasComponent
+    InformacionPeliculasComponent,
+    ScrapingComponent
   ],
   imports: [
     BrowserModule,
