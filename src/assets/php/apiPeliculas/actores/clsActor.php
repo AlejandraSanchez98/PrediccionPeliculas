@@ -3,9 +3,9 @@
   {
     private $conexion;
     public $idActor;
-    public $nombre_actor;
-    public $pais_actor;
-    public $obras_previas;
+    public $nombreActor;
+    public $paisActor;
+    public $obrasPrevias;
   
 
     function __construct()
@@ -29,7 +29,7 @@
     }
     public function guardar()
     {
-      $query = "INSERT INTO autor(nombre_actor,pais_actor,obras_previas) VALUES ('{$this->nombre_actor}','{$this->pais_actor}','{$this->obras_previas}')";
+      $query = "INSERT INTO autor(nombreActor,paisActor,obrasPrevias) VALUES ('{$this->nombreActor}','{$this->paisActor}','{$this->obrasPrevias}')";
       return $this->conexion->ejecutar($query);
     }
   }

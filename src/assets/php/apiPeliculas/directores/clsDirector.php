@@ -2,10 +2,10 @@
   class Director
   {
     private $conexion;
-    public $Id_dire;
-    public $nombre_director;
-    public $pais_director;
-    public $obras_previas;
+    public $idDirector;
+    public $nombreDirector;
+    public $paisDirector;
+    public $obrasPrevias;
  
 
     function __construct()
@@ -19,17 +19,17 @@
     }
     public function cargarxUsuario()
     {
-      $query = "SELECT * FROM director WHERE Id_dire='{$this->Id_dire}'";
+      $query = "SELECT * FROM director WHERE idDirector='{$this->idDirector}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function eliminar()
     {
-      $query = "DELETE FROM director WHERE Id_dire='{$this->Id_dire}'";
+      $query = "DELETE FROM director WHERE idDirector='{$this->idDirector}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function guardar()
     {
-      $query = "INSERT INTO director(nombre_directorpais_director,obras_previas) VALUES ('{$this->nombre_director}','{$this->pais_director}','{$this->obras_previas }')";
+      $query = "INSERT INTO director(nombreDirector,paisDirector,obrasPrevias) VALUES ('{$this->nombreDirector}','{$this->paisDirector}','{$this->obrasPrevias }')";
       return $this->conexion->ejecutar($query);
     }
   }

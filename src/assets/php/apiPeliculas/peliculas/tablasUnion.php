@@ -5,7 +5,7 @@
  include("clsPelicula.php");
 
  $objPeli = new Pelicula();
- $objPeli->Id_pelis= $_GET['Id_pelis'];
+ $objPeli->idPelicula= $_GET['idPelicula'];
  $arreglo = $objPeli->union();
 
 

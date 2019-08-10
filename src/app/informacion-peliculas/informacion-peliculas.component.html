@@ -3,12 +3,12 @@
         <div class="w3-row" style="margin: 20px">
             <div *ngFor="let i of arregloPeliculas">
                 <div class="w3-col m2">
-                    <img class="img" src="{{i.imagen}}">
+                    <img class="img" src="{{i.imagenPelicula}}">
                     <div class="cuadroCal">
                         <b>Valoración:</b>
                         <div>
                             <p><b>Calificaión:</b></p>
-                            <p  class="cuadro"> {{i.calificacion}} </p>
+                            <p  class="cuadro"> {{i.calificacionPelicula}} </p>
                         </div>
                     </div>
                 </div>
@@ -16,15 +16,15 @@
                     <div class="cuadroDescrip">
                         <h3 class="w3-center">Ficha Técnica</h3>
                         <p>
-                            <b>Titulo original:</b> {{i.titulo_pelicula}}<br>
-                            <b>Fecha Estreno:</b> {{i.fecha_estreno}}<br>
-                            <b>Duración:</b> {{i.duracion_pelicula}}<br>
-                            <b>País:</b> {{i.pais_pelicula}}<br>
-                            <b>Dirección:</b>{{i.nombre_director}}<br>
-                            <b>Guion:</b> {{i.nombre}}<br>
-                            <b>Resumen de la Pelicula:</b> {{i.resumen_pelicula}}<br>
-                            <b>Producción:</b> {{i.nombre_productor}}<br>
-                            <b>Género:</b> {{i.genero_pelicula}}<br>
+                            <b>Titulo original:</b> {{i.tituloPelicula}}<br>
+                            <b>Fecha Estreno:</b> {{i.fechaEPelicula}}<br>
+                            <b>Duración:</b> {{i.duracionPelicula}}<br>
+                            <b>País:</b> {{i.paisPelicula}}<br>
+                            <b>Dirección:</b>{{i.nombreDirector}}<br>
+                            <b>Guion:</b> {{i.nombreGuionista}}<br>
+                            <b>Resumen de la Pelicula:</b> {{i.resumenPelicula}}<br>
+                            <b>Producción:</b> {{i.nombreProductor}}<br>
+                            <b>Género:</b> {{i.generoPelicula}}<br>
                         </p>
                     </div>
                 </div>

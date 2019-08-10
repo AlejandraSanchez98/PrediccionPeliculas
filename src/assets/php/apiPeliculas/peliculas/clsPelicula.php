@@ -2,15 +2,15 @@
   class Pelicula
   {
     private $conexion;
-    public $Id_pelis;
-    public $titulo_pelicula;
-    public $genero_pelicula;
-    public $fecha_estreno;
-    public $resumen_pelicula;
-    public $imagen;
-    public $pais_pelicula;
-    public $duracion_pelicula;
-    public $calificacion;
+    public $idPelicula;
+    public $tituloPelicula;
+    public $generoPelicula;
+    public $fechaEPelicula;
+    public $resumenPelicula;
+    public $imagenPelicula;
+    public $paisPelicula;
+    public $duracionPelicula;
+    public $calificacionPelicula;
 
     function __construct()
     {
@@ -23,29 +23,29 @@
     }
     public function cargarxPelicula()
     {
-      $query = "SELECT * FROM pelicula WHERE Id_pelis ='{$this->Id_pelis}'";
+      $query = "SELECT * FROM pelicula WHERE idPelicula ='{$this->idPelicula}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function eliminar()
     {
-      $query = "DELETE FROM pelicula WHERE Id_pelis ='{$this->Id_pelis}'";
+      $query = "DELETE FROM pelicula WHERE idPelicula ='{$this->idPelicula}'";
       return $this->conexion->ejecutarQuery($query);
     }
     public function guardar()
     {
-      $query = "INSERT INTO pelicula(titulo_pelicula,genero_pelicula,fecha_estreno,resumen_pelicula,imagen,pais_pelicula,duracion_pelicula,calificacion) VALUES ('{$this->titulo_pelicula}','{$this->genero_pelicula}','{$this->fecha_estreno}','{$this->resumen_pelicula}','{$this->imagen}','{$this->pais_pelicula}','{$this->duracion_pelicula}','{$this->calificacion}')";
+      $query = "INSERT INTO pelicula(tituloPelicula,generoPelicula,fechaEPelicula,resumenPelicula,imagenPelicula,paisPelicula,duracionPelicula,calificacionPelicula) VALUES ('{$this->tituloPelicula}','{$this->generoPelicula}','{$this->fechaEPelicula}','{$this->resumenPelicula}','{$this->imagenPelicula}','{$this->paisPelicula}','{$this->duracionPelicula}','{$this->calificacionPelicula}')";
       return $this->conexion->ejecutar($query);
     }
     public function union()
     {
       //$query = "SELECT PL.titulo_pelicula,  PL.fecha_estreno, PL.duracion_pelicula, PL.pais_pelicula, PL.genero_pelicula, PL.resumen_pelicula, PL.calificacion, GUI.nombre FROM pelicula PL JOIN guionista GUI WHERE PL.Id_pelis = GUI.id_guio;
 
-     $query = "SELECT PL.titulo_pelicula,  PL.fecha_estreno, PL.duracion_pelicula, PL.pais_pelicula, PL.genero_pelicula, PL.resumen_pelicula, PL.calificacion, GUI.nombre, DIR.nombre_director, ACT.nombre_actor, PRO.nombre_productor
+     $query = "SELECT PL.tituloPelicula,  PL.fechaEPelicula, PL.duracionPelicula, PL.paisPelicula, PL.generoPelicula, PL.resumenPelicula, PL.calificacionPelicula, GUI.nombreGuionista, DIR.nombreDirector, ACT.nombreActor, PRO.nombreProductor
       FROM pelicula PL
-      INNER JOIN guionista GUI On PL.id_guio  = GUI.id_guio
-      INNER JOIN director DIR On PL.Id_dire  = DIR.Id_dire
+      INNER JOIN guionista GUI On PL.idGuionista  = GUI.idGuionista
+      INNER JOIN director DIR On PL.idDirector  = DIR.idDirector
       INNER JOIN autor ACT On PL.idActor = ACT.idActor
-      INNER JOIN productor PRO On PL.id_produc  = PRO.id_produc  WHERE Id_pelis ='{$this->Id_pelis}'"; 
+      INNER JOIN productor PRO On PL.idProductor  = PRO.idProductor  WHERE idPelicula ='{$this->idPelicula}'"; 
 
       return $this->conexion->ejecutarQuery($query);
     }

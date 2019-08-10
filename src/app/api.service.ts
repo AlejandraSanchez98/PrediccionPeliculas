@@ -3,7 +3,7 @@ import { HttpClient,HttpParams,HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 export interface IInformacionPeliculas{
-  Id_pelis: number;
+  idPelicula: number;
   tituloPelicula: string;
   imagenPelicula: string;
   generoPelicula: string;
@@ -26,6 +26,6 @@ export class ApiService {
   }
 
   public mostrarxPelicula(id:number){
-    return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?Id_pelis='+id,{headers:this.headers});
+    return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?idPelicula='+id,{headers:this.headers});
 }
 }

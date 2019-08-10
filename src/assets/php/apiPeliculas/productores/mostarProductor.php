@@ -9,9 +9,9 @@
   include("../conexion.php");
 
   $objProductor = new Productor();
-  $objProductor ->nombre_productor=$_GET["nombre_productor"];
-  $objProductor ->obras_previas=$_GET["obras_previas"];
-  $objProductor ->pais_productor$_GET["pais_productor"];
+  $objProductor ->nombreProductor=$_GET["nombreProductor"];
+  $objProductor ->obrasPrevias=$_GET["obrasPrevias"];
+  $objProductor ->paisProductor$_GET["paisProductor"];
 
 
   $resultado = $objProductor >cargar();

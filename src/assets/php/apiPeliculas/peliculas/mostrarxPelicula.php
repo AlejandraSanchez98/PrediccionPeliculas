@@ -5,7 +5,7 @@ include("../conexion.php");
 include("clsPelicula.php");
 
 $objPeli = new Pelicula();
-$objPeli->Id_peliculas = $_GET['Id_peliculas'];
+$objPeli->idPelicula = $_GET['idPelicula'];
 $arreglo = $objPeli->cargarxPelicula();
 
 echo(json_encode($arreglo));

@@ -10,9 +10,9 @@
   include("../conexion.php");
 
   $objGuionista = new Guionista();
-  $objGuionista ->nombre=$_GET["nombre"];
-  $objGuionista ->obras_previas=$_GET["obras_previas"];
-  $objGuionista ->pais_guionista =$_GET["pais_guionista"];
+  $objGuionista ->nombreGuionista=$_GET["nombreGuionista"];
+  $objGuionista ->obrasPrevias=$_GET["obrasPrevias"];
+  $objGuionista ->paisGuionista =$_GET["paisGuionista"];
 
   $resultado =  $objGuionista ->guardar();
 

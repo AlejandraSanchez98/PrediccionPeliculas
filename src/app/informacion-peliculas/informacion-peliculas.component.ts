@@ -18,6 +18,7 @@ export class InformacionPeliculasComponent implements OnInit {
   public valoracionActores:number;
   public valoracionProductor:number;
   public Id_peliculas:number;
+ 
   constructor(public route:ActivatedRoute,public API:ApiService, public http: HttpClient) {
     this.valoracionDirector = 5;
     this.valoracionGuionista = 5;
@@ -39,7 +40,7 @@ export class InformacionPeliculasComponent implements OnInit {
 
   public mostrarInformacion(){
     this.route.queryParams.subscribe((params: IInformacionPeliculas) => {
-    this.Id_peliculas = params['Id_pelis'];
+    this.Id_peliculas = params['idPelicula'];
     return this.API.mostrarxPelicula(this.Id_peliculas).subscribe(
       (success:any)=>{
         this.arregloPeliculas = success;

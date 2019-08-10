@@ -10,9 +10,9 @@
   include("../conexion.php");
 
   $objDirector = new Director();
-  $objDirector->nombre_director=$_GET["nombre_director"];
-  $objDirector->pais_director=$_GET["pais_director"];
-  $objDirector->obras_previas=$_GET["obras_previas"];
+  $objDirector->nombreDirector=$_GET["nombreDirector"];
+  $objDirector->paisDirector=$_GET["paisDirector"];
+  $objDirector->obrasPrevias=$_GET["obrasPrevias"];
 
   $resultado = $objDirector->guardar();
 

@@ -11,14 +11,14 @@
 
   $objPeli = new Pelicula();
   //$objPeli->Id_peliculas=$_GET["Id_peliculas"];
-  $objPeli->titulo_pelicula =$_GET["titulo_pelicula "];
-  $objPeli->genero_pelicula=$_GET["genero_pelicula"];
-  $objPeli->fecha_estreno=$_GET["fecha_estreno"];
-  $objPeli->resumen_pelicula=$_GET["resumen_pelicula"];
-  $objPeli->imagen=$_GET["imagen"];
-  $objPeli->pais_pelicula=$_GET["pais_pelicula"];
-  $objPeli->duracion_pelicula=$_GET["duracion_pelicula"];
-  $objPeli->calificacion=$_GET["calificacion"];
+  $objPeli->tituloPelicula =$_GET["tituloPelicula "];
+  $objPeli->generoPelicula=$_GET["generoPelicula"];
+  $objPeli->fechaEPelicula=$_GET["fechaEPelicula"];
+  $objPeli->resumenPelicula=$_GET["resumenPelicula"];
+  $objPeli->imagenPelicula=$_GET["imagenPelicula"];
+  $objPeli->paisPelicula=$_GET["paisPelicula"];
+  $objPeli->duracionPelicula=$_GET["duracionPelicula"];
+  $objPeli->calificacionPelicula=$_GET["calificacionPelicula"];
 
   $resultado = $objPeli->guardar();
 
