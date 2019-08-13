@@ -12,7 +12,7 @@ export class ScrapingComponent implements OnInit {
     this.arregloScraping = [];
   }
   public mostrarRegistrosScraping(): void {
-    this.API.mostrarPeliculas().subscribe(
+    this.API.webScraping().subscribe(
       (success:any)=>{
         console.log("exito!: "+ success);
         this.arregloScraping = success;

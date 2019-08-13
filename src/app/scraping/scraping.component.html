@@ -1,3 +1,18 @@
-<div *ngFor="let i of arregloScraping">
-  <p>scraping works!</p>
+<div style="padding: 25px;">
+  <h2>Próximas Peliculas a Cartelera</h2>
+  <table id="customers" border="1" class="w3-table-all w3-hoverable">
+    <tr style="background-color: rgba(0, 0, 0, 0.842); color: white;">
+      <th class="w3-center">Titulo</th>
+      <th class="w3-center">Genero</th>
+      <th class="w3-center">Estreno</th>
+      <th class="w3-center">Resumen</th>
+      <th class="w3-center">Pais</th>
+      <th class="w3-center">Duracion</th>
+    </tr>
+    <tbody id="idTabla">
+      <tr style="background-color: rgba(0, 0, 0, 0.726); color: white;">
+        <td>{{i.tituloPelicula}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
