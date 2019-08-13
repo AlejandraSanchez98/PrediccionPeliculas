@@ -11,12 +11,14 @@ import { HttpClient} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { ScrapingComponent } from './scraping/scraping.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InformacionPeliculasComponent,
-    LoginComponent
+    LoginComponent,
+    ScrapingComponent
   ],
   imports: [
     BrowserModule,
