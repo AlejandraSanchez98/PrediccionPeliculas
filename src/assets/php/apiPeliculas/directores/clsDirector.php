@@ -32,5 +32,10 @@
       $query = "INSERT INTO director(nombreDirector,paisDirector,obrasPrevias) VALUES ('{$this->nombreDirector}','{$this->paisDirector}','{$this->obrasPrevias }')";
       return $this->conexion->ejecutar($query);
     }
+public function cargarID(){
+      $query = "SELECT idDirector FROM director WHERE nombreDirector = '{$this->nombreDirector}'";
+      return $this->conexion->ejecutarQuery($query);
+    }
+
   }
  ?>
