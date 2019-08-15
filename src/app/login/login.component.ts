@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     let pass = this.frmLogin.get('contrasenia').value;
     if (user == "admin" && pass == "1234") {
       this.router.navigate(['/scraping']);
+      window.localStorage.setItem('user', user);
     }
     else{
       alert("Verifica los campos");

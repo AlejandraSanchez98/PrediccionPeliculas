@@ -37,4 +37,10 @@ export class ApiService {
     return this.http.get('http://localhost/web_scraping/hey.php');
   }
 
+  public mostrarComentarios(){
+    return this.http.get('http://localhost/apiPeliculas/comentarios/comentario.php');
+  }
+
+
+
 }

@@ -5,13 +5,15 @@ import {InformacionPeliculasComponent} from './informacion-peliculas/informacion
 import {ScrapingComponent} from './scraping/scraping.component';
 import {AgregarInformacionComponent} from './agregar-informacion/agregar-informacion.component';
 import {LoginComponent} from './login/login.component';
+import {AccesoScrapingGuard} from './acceso-scraping.guard';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'informacion-peliculas', component: InformacionPeliculasComponent},
-  {path: 'scraping', component: ScrapingComponent},
-  {path: 'agregar-informacion', component: AgregarInformacionComponent},
+  {path: 'scraping', component: ScrapingComponent, canActivate:[AccesoScrapingGuard]},
+  {path: 'agregar-informacion', component: AgregarInformacionComponent, canActivate:[AccesoScrapingGuard]},
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'}
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '**', redirectTo: 'home', pathMatch: 'full'}, //redirige a home en caso de que el usuario invente una ruta.
 ];
 
 @NgModule({

@@ -31,6 +31,17 @@
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Críticas">Content 2</mat-tab>
+    <mat-tab label="Críticas">
+      <h3 style="margin:20px" class="w3-center"><b>Comentarios</b></h3>
+      <div class="cuadroComentarios" style="background-color:black;opacity:0.9" *ngFor="let i of arregloComentarios">
+        <div style="margin:20px">
+          <input class="w3-input" type="text" placeholder="{{i.usuarioComentario}}" style="width:auto;"><br>
+          <textarea rows="4" cols="60" placeholder="Agregar Comentario" style="width:auto">{{i.comentario}}</textarea>
+        </div>
+        <div class="w3-center">
+          <button class="botonE" type="button" name="button">Enviar</button>
+        </div>
+      </div>
+    </mat-tab>
     <mat-tab label="Tráilers">Content 3</mat-tab>
 </mat-tab-group>

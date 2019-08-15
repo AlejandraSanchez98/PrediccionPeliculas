@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrapingComponent } from './scraping/scraping.component';
 import { AgregarInformacionComponent } from './agregar-informacion/agregar-informacion.component';
+import { CalificacionComponent } from './calificacion/calificacion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { AgregarInformacionComponent } from './agregar-informacion/agregar-infor
     InformacionPeliculasComponent,
     LoginComponent,
     ScrapingComponent,
-    AgregarInformacionComponent
+    AgregarInformacionComponent,
+    CalificacionComponent
   ],
   imports: [
     BrowserModule,

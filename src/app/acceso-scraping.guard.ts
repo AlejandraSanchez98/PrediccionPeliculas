@@ -8,7 +8,7 @@ import { CanActivate, Router} from '@angular/router';
 export class AccesoScrapingGuard implements CanActivate  {
   constructor(public router: Router){}
   canActivate(){
-    if(window.localStorage.getItem("nombreUsuario")){
+    if(window.localStorage.getItem("user")){
      return true;
    }
    else
