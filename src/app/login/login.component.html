@@ -11,14 +11,13 @@
           <label *ngIf="frmLogin.controls.usuario.invalid && frmLogin.controls.usuario.dirty" style="color: yellow;">Este campo es obligatorio</label>
           <br>
           <div>
-            <input formControlName="contrasenia" class="w3-input inputLogin" type="text" placeholder="Contraseña">
+            <input formControlName="contrasenia" class="w3-input inputLogin" type="password" placeholder="Contraseña">
           </div>
           <label *ngIf="frmLogin.controls.contrasenia.invalid && frmLogin.controls.contrasenia.dirty" style="color: yellow;">Este campo es obligatorio</label>
           <br>
         </form>
-        <button type="button" class="w3-btn w3-yellow btnIngresar" [disabled]="frmLogin.invalid">Ingresar</button>
+        <button type="button" class="w3-btn w3-yellow btnIngresar" [disabled]="frmLogin.invalid" (click)="acceder()">Ingresar</button>
       </div>
-
     </div>
     <div class="w3-col m4">&nbsp;</div>
   </div>

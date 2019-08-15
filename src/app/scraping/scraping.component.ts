@@ -29,6 +29,9 @@ export class ScrapingComponent implements OnInit {
   }
   ngOnInit() {
     this.mostrarRegistrosScraping();
+    document.getElementById('idHeader').style.display = "block";
+    document.getElementById('idSideMenu').style.display = "block";
+    document.getElementById('idContenido').style.display = "block";
   }
 
 }

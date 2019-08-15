@@ -19,9 +19,18 @@ export class LoginComponent implements OnInit {
   }
 
   public acceder(){
+    let user = this.frmLogin.get('usuario').value; //es como un getelementebyid pero en un formBuilder xD
+    let pass = this.frmLogin.get('contrasenia').value;
+    if (user == "admin" && pass == "1234") {
+      this.router.navigate(['/scraping']);
+    }
+    else{
+      alert("Verifica los campos");
+    }
+
 
   }
-  
+
   public vistaMenu(){
     document.getElementById('idHeader').style.display = "none";
     document.getElementById('idSideMenu').style.display = "none";
