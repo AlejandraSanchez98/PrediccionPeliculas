@@ -1,0 +1,52 @@
+<mat-tab-group animationDuration="2000ms">
+    <mat-tab label="Ficha">
+        <h3 class="w3-center" style="margin: 30px">Agregar Informacón Pelicula</h3>
+        <div style="margin: 30px;">
+            <form [fromGroup]= "frmPeliculas">
+                <div>
+                    <input formControlName="tituloPelicula" class="w3-input" type="text" placeholder="Titulo de la pelicula" >
+                </div>
+                <label *ngIf="frmPeliculas.controls.tituloPelicula.invalid && frmPeliculas.controls.tituloPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="generoPelicula" class="w3-input" type="text" placeholder="Genero de la Pelicula" value="generoPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.generoPelicula.invalid && frmPeliculas.controls.generoPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="fechaEPelicula" class="w3-input" type="text" placeholder="Fecha de estreno de la pelicula" value="fechaEPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.fechaEPelicula.invalid && frmPeliculas.controls.fechaEPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="resumenPelicula" class="w3-input" type="text" placeholder="Resumen de la Pelicula" value="resumenPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.resumenPelicula.invalid && frmPeliculas.controls.resumenPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="imagenPelicula" class="w3-input" type="text" placeholder="Imagen de la Pelicula" value="imagenPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.imagenPelicula.invalid && frmPeliculas.controls.imagenPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="paisPelicula" class="w3-input" type="text" placeholder="Pais de la Pelicula" value="paisPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.paisPelicula.invalid && frmPeliculas.controls.paisPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="duracionPelicula" class="w3-input" type="text" placeholder="Duración de la Pelicula" value="duracionPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.duracionPelicula.invalid && frmPeliculas.controls.duracionPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+                <div>
+                    <input formControlName="calificacionPelicula" class="w3-input" type="text" placeholder="Calificación  de la Pelicula" value="calificacionPelicula">
+                </div>
+                <label *ngIf="frmPeliculas.controls.calificacionPelicula.invalid && frmPeliculas.controls.calificacionPelicula.dirty">Este campo es obligatorio</label>
+                <br>
+            </form>
+        </div>
+    </mat-tab>
+    <mat-tab label="Críticas">Content 2</mat-tab>
+    <mat-tab label="Tráilers">Content 3</mat-tab>
+</mat-tab-group>
+

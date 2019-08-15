@@ -29,6 +29,9 @@ export class ApiService {
     return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?idPelicula='+id,{headers:this.headers});
   }
 
+  public guardarPelicula(tituloPelicula:string, generoPelicula:string, fechaEPelicula:string, resumenPelicula:string, imagenPelicula:string,paisPelicula:string,duracionPelicula:string, calificacionPelicula:number){
+    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {tituloPelicula,generoPelicula,fechaEPelicula,resumenPelicula,imagenPelicula,paisPelicula,duracionPelicula,calificacionPelicula},{headers:this.headers});
+  }
 
   public webScraping(){
     return this.http.get('http://localhost/web_scraping/hey.php');

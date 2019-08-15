@@ -12,13 +12,15 @@ import {HttpParams} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ScrapingComponent } from './scraping/scraping.component';
+import { AgregarInformacionComponent } from './agregar-informacion/agregar-informacion.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     InformacionPeliculasComponent,
     LoginComponent,
-    ScrapingComponent
+    ScrapingComponent,
+    AgregarInformacionComponent
   ],
   imports: [
     BrowserModule,

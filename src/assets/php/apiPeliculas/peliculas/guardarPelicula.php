@@ -11,7 +11,7 @@
 
   $objPeli = new Pelicula();
   //$objPeli->Id_peliculas=$_GET["Id_peliculas"];
-  $objPeli->tituloPelicula =$_GET["tituloPelicula "];
+  $objPeli->tituloPelicula =$_GET["tituloPelicula"];
   $objPeli->generoPelicula=$_GET["generoPelicula"];
   $objPeli->fechaEPelicula=$_GET["fechaEPelicula"];
   $objPeli->resumenPelicula=$_GET["resumenPelicula"];
