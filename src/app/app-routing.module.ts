@@ -4,12 +4,13 @@ import { HomeComponent } from './home/home.component';
 import {InformacionPeliculasComponent} from './informacion-peliculas/informacion-peliculas.component';
 import {ScrapingComponent} from './scraping/scraping.component';
 import {AgregarInformacionComponent} from './agregar-informacion/agregar-informacion.component';
-
+import {LoginComponent} from './login/login.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'informacion-peliculas', component: InformacionPeliculasComponent},
   {path: 'scraping', component: ScrapingComponent},
   {path: 'agregar-informacion', component: AgregarInformacionComponent},
+  {path: 'login', component: LoginComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
