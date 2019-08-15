@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     document.getElementById('idHeader').style.display = "none";
     document.getElementById('idSideMenu').style.display = "none";
     document.getElementById('idContenido').style.display = "block";//mantiene el contenido en su posicion original a pesar del none de sus compañeros
-    document.getElementById('idFooter').style.display = "none";//mantiene el contenido en su posicion original a pesar del none de sus compañeros
+    document.getElementById('idFooter').style.display = "block";//mantiene el contenido en su posicion original a pesar del none de sus compañeros
   }
 
   ngOnInit() {

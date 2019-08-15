@@ -54,7 +54,7 @@ export class ApiService {
   }
 
   public mostrarProductor(){
-    return this.http.get('http://localhost/apiPeliculas/Productores/productor.php', {headers:this.headers});
+    return this.http.get('http://localhost/apiPeliculas/productores/productor.php', {headers:this.headers});
   }
 
   public webScraping(){
@@ -64,7 +64,5 @@ export class ApiService {
   public mostrarComentarios(){
     return this.http.get('http://localhost/apiPeliculas/comentarios/comentario.php');
   }
-
-
 
 }

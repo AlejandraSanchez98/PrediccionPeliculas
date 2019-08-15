@@ -9,7 +9,21 @@ interface IActor{
   paisActor: string;
   obrasPrevias: string;
 }
-
+interface IGuionista{
+  nombreGuionista: string;
+  paisGuionista: string;
+  obrasPrevias: string;
+}
+interface IDirector{
+  nombreDirector: string;
+  paisDirector: string;
+  obrasPrevias: string;
+}
+interface IProductor{
+  nombreProductor: string;
+  paisProductor: string;
+  obrasPrevias: string;
+}
 
 
 @Component({
@@ -20,10 +34,14 @@ interface IActor{
 export class AgregarInformacionComponent implements OnInit {
   public arregloPeliculas: IInformacionPeliculas[];
   public arregloActor: IActor[];
+  public arregloProductor: IProductor[];
+  public arregloDirector: IDirector[];
+  public arregloGuionista: IGuionista[];
   public frmPeliculas: FormGroup;
   public formValid:Boolean=false;
-  constructor( public formBuilder: FormBuilder, public router: Router, public API:ApiService) { 
+  constructor( public formBuilder: FormBuilder, public router: Router, public API:ApiService) {
     this.arregloPeliculas = [];
+    this.arregloActor = [];
 
     this.frmPeliculas = this.formBuilder.group({
       tituloPelicula:["",Validators.required],
@@ -59,10 +77,10 @@ export class AgregarInformacionComponent implements OnInit {
     );
   }
 
- 
+
   public mostrarPeliculas(): void {
     this.API.mostrarPeliculas().subscribe(
-      (success:any)=>{
+      (success:IInformacionPeliculas[])=>{
         console.log("exito!: "+ success);
         this.arregloPeliculas = success;
         console.log(JSON.stringify(this.arregloPeliculas))
@@ -76,7 +94,7 @@ export class AgregarInformacionComponent implements OnInit {
 
   public mostrarActor(): void {
     this.API.mostrarActor().subscribe(
-      (success:any)=>{
+      (success:IActor[])=>{
         console.log("exito!: "+ success);
         this.arregloActor = success;
         console.log(JSON.stringify(this.arregloActor))
@@ -87,13 +105,13 @@ export class AgregarInformacionComponent implements OnInit {
       }
     );
   }
-  
+
   public mostrarDirector(): void {
     this.API.mostrarDirector().subscribe(
-      (success:any)=>{
+      (success:IDirector[])=>{
         console.log("exito!: "+ success);
-        this.arregloPeliculas = success;
-        console.log(JSON.stringify(this.arregloPeliculas))
+        this.arregloDirector = success;
+        console.log(JSON.stringify(this.arregloDirector))
       },
       (error)=>{
         console.log(error);
@@ -104,10 +122,10 @@ export class AgregarInformacionComponent implements OnInit {
 
   public mostrarGuionista(): void {
     this.API.mostrarGuionista().subscribe(
-      (success:any)=>{
+      (success:IGuionista[])=>{
         console.log("exito!: "+ success);
-        this.arregloPeliculas = success;
-        console.log(JSON.stringify(this.arregloPeliculas))
+        this.arregloGuionista = success;
+        console.log(JSON.stringify(this.arregloGuionista))
       },
       (error)=>{
         console.log(error);
@@ -118,10 +136,10 @@ export class AgregarInformacionComponent implements OnInit {
 
   public mostrarProductor(): void {
     this.API.mostrarProductor().subscribe(
-      (success:any)=>{
+      (success:IProductor[])=>{
         console.log("exito!: "+ success);
-        this.arregloPeliculas = success;
-        console.log(JSON.stringify(this.arregloPeliculas))
+        this.arregloProductor = success;
+        console.log(JSON.stringify(this.arregloProductor))
       },
       (error)=>{
         console.log(error);
@@ -133,6 +151,9 @@ export class AgregarInformacionComponent implements OnInit {
 
   ngOnInit() {
     this.mostrarActor();
+    this.mostrarProductor();
+    this.mostrarDirector();
+    this.mostrarGuionista();
   }
 
 }
