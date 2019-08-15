@@ -1,18 +1,26 @@
 <div style="padding: 25px;">
   <h2>Próximas Peliculas a Cartelera</h2>
-  <table id="customers" border="1" class="w3-table-all w3-hoverable">
-    <tr style="background-color: rgba(0, 0, 0, 0.842); color: white;">
-      <th class="w3-center">Titulo</th>
-      <th class="w3-center">Genero</th>
-      <th class="w3-center">Estreno</th>
-      <th class="w3-center">Resumen</th>
-      <th class="w3-center">Pais</th>
-      <th class="w3-center">Duracion</th>
-    </tr>
-    <tbody id="idTabla">
-      <tr style="background-color: rgba(0, 0, 0, 0.726); color: white;">
-        <td>{{i.tituloPelicula}}</td>
+  <div id="idTabla">
+    <table id="customers" border="1" class="w3-table-all w3-hoverable">
+      <tr style="background-color: rgba(0, 0, 0, 0.842); color: white;">
+        <th class="w3-center">Titulo</th>
+        <th class="w3-center">Estreno</th>
+        <th class="w3-center">Descripcion</th>
+        <th class="w3-center">Reparto</th>
+        <th class="w3-center">Genero</th>
+        <th class="w3-center">Portada</th>
       </tr>
-    </tbody>
-  </table>
-</div>
+      <tbody *ngFor="let i of arregloScraping" id="idTabla">
+        <tr style="background-color: rgba(0, 0, 0, 0.726); color: white;">
+          <td>{{i.titulo}}</td>
+          <td>{{i.estreno}}</td>
+          <td>{{i.descripcion}}</td>
+          <td [innerHTML]="i.reparto"></td> <!--esto nos arrojaba algo asi: <a>hola<a>, con el innerHTML unicamente recuperamos el hola-->
+            <td>{{i.genero}}</td>
+            <td [innerHTML]="i.imagen"></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

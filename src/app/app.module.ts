@@ -11,6 +11,7 @@ import { HttpClient} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrapingComponent } from './scraping/scraping.component';
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { ScrapingComponent } from './scraping/scraping.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,

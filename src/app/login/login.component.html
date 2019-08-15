@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="fondoLogin">
+  <div class="w3-row">
+    <div class="w3-col m4">&nbsp;</div>
+    <div class="w3-col m4">
+      <div class="margenLogin">
+        <img src="../../assets/img/Profecia.png" alt="">
+        <form [formGroup]= "frmLogin">
+          <div>
+            <input formControlName="usuario" class="w3-input inputLogin" type="text" placeholder="Nombre de usuario" style="margin-top: -40px;">
+          </div>
+          <label *ngIf="frmLogin.controls.usuario.invalid && frmLogin.controls.usuario.dirty" style="color: yellow;">Este campo es obligatorio</label>
+          <br>
+          <div>
+            <input formControlName="contrasenia" class="w3-input inputLogin" type="text" placeholder="Contraseña">
+          </div>
+          <label *ngIf="frmLogin.controls.contrasenia.invalid && frmLogin.controls.contrasenia.dirty" style="color: yellow;">Este campo es obligatorio</label>
+          <br>
+        </form>
+        <button type="button" class="w3-btn w3-yellow btnIngresar" [disabled]="frmLogin.invalid">Ingresar</button>
+      </div>
+
+    </div>
+    <div class="w3-col m4">&nbsp;</div>
+  </div>
+</div>
