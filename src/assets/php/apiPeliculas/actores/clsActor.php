@@ -32,5 +32,9 @@
       $query = "INSERT INTO autor(nombreActor,paisActor,obrasPrevias) VALUES ('{$this->nombreActor}','{$this->paisActor}','{$this->obrasPrevias}')";
       return $this->conexion->ejecutar($query);
     }
+    public function cargarID(){
+      $query = "SELECT idActor FROM autor WHERE nombreActor = '{$this->nombreActor}'";
+      return $this->conexion->ejecutarQuery($query);
+    }
   }
  ?>

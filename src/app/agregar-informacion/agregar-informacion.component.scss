@@ -4,8 +4,8 @@
 
 input[type=text], select {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    padding: 10;
+    margin: 5px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -29,6 +29,18 @@ input[type=text], select {
   
   div {
     border-radius: 5px;
-    background-color: rgb(56, 53, 53);
-    padding: 20px;
+    background-color: black;
+    padding: 10px;
+  }
+
+  .colorbotonFormulario{
+    background-color:  rgb(243, 166, 51);
+    color: white;
+  }
+
+
+  label{
+    color: white;
+    margin: 10px;
+    text-align: center;
   }
