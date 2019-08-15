@@ -4,6 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 
 export interface IInformacionPeliculas{
   idPelicula: number;
+  idActor:number;
+  idDirector:number;
+  idGuionista:number;
+  idProductor:number;
+  nombreActor:string;
+  nombreDirector:string;
+  nombreGuionista:string;
+  nombreProductor:string;
   tituloPelicula: string;
   imagenPelicula: string;
   generoPelicula: string;
@@ -29,8 +37,24 @@ export class ApiService {
     return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?idPelicula='+id,{headers:this.headers});
   }
 
-  public guardarPelicula(tituloPelicula:string, generoPelicula:string, fechaEPelicula:string, resumenPelicula:string, imagenPelicula:string,paisPelicula:string,duracionPelicula:string, calificacionPelicula:number){
-    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {tituloPelicula,generoPelicula,fechaEPelicula,resumenPelicula,imagenPelicula,paisPelicula,duracionPelicula,calificacionPelicula},{headers:this.headers});
+  public guardarPelicula(tituloPelicula:string, generoPelicula:string, fechaEstrenoPelicula:string, resumenPelicula:string, imagenPelicula:string,paisOrigenPelicula:string,duracionPelicula:string, calificacionFinalPelicula:number){
+    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {tituloPelicula,generoPelicula,fechaEstrenoPelicula,resumenPelicula,imagenPelicula,paisOrigenPelicula,duracionPelicula,calificacionFinalPelicula},{headers:this.headers});
+  }
+
+  public mostrarActor(){
+    return this.http.get('http://localhost/apiPeliculas/actores/actor.php',{headers:this.headers});
+  }
+
+  public mostrarDirector(){
+    return this.http.get('http://localhost/apiPeliculas/directores/director.php', {headers:this.headers});
+  }
+
+  public mostrarGuionista(){
+    return this.http.get('http://localhost/apiPeliculas/guionistas/guionista.php', {headers:this.headers});
+  }
+
+  public mostrarProductor(){
+    return this.http.get('http://localhost/apiPeliculas/Productores/productor.php', {headers:this.headers});
   }
 
   public webScraping(){
