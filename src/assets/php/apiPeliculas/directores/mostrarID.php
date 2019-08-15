@@ -4,9 +4,9 @@ include("../config.php");
 include("../conexion.php");
 include("clsDirector.php");
 
-$objDirector = new Actor();
+$objDirector = new Director();
 $objDirector->nombreDirector = $_GET['nombreDirector'];
-$arreglo = $objAct->cargarID();
+$arreglo = $objDirector->cargarID();
 
 echo(json_encode($arreglo));
 ?>
