@@ -1,5 +1,5 @@
 <h3 class="w3-center" style="margin: 30px"><b>Agregar Información Pelicula</b></h3>
-<div style="margin-left: 60px; margin-right: 60px; margin-bottom: 60px; margin-top: 10px; opacity: 0.9;">
+<div id="idAdd" class="contenedorAdd">
   <form [formGroup]= "frmPeliculas">
     <div class="w3-row">
       <div class="w3-col m6">
@@ -22,7 +22,26 @@
           <input formControlName="resumenPelicula" class="w3-input" type="text" placeholder="Resumen de la Pelicula" value="resumenPelicula">
         </div>
         <label *ngIf="frmPeliculas.controls.resumenPelicula.invalid && frmPeliculas.controls.resumenPelicula.dirty">Este campo es obligatorio</label>
+        <div>
+          <p>
+            <label for="">Protagonista:</label>
+            <select>
+              <option *ngFor="let i of arregloActor">{{i.nombreActor}}</option>
+            </select>
+          </p>
+        </div>
+        <div>
+          <p>
+            <label for="">Productor:</label>
+            <select>
+              <option *ngFor="let i of arregloProductor">{{i.nombreProductor}}</option>
+            </select>
+          </p>
+        </div>
+        <br>
       </div>
+
+
       <div class="w3-col m6">
         <div>
           <input formControlName="imagenPelicula" class="w3-input" type="text" placeholder="Imagen de la Pelicula" value="imagenPelicula">
@@ -43,29 +62,21 @@
           <input formControlName="calificacionFinalPelicula" class="w3-input" type="text" placeholder="Calificación  de la Pelicula" value="calificacionFinalPelicula">
         </div>
         <label *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
-        <br>
         <div>
-          <select>
-            <option *ngFor="let i of arregloActor">{{i.nombreActor}}</option>
-          </select>
+          <p>
+            <label for="">Director:</label>
+            <select>
+              <option *ngFor="let i of arregloDirector">{{i.nombreDirector}}</option>
+            </select>
+          </p>
         </div>
-        <br>
         <div>
-          <select>
-            <option *ngFor="let i of arregloProductor">{{i.nombreProductor}}</option>
-          </select>
-        </div>
-        <br>
-        <div>
-          <select>
-            <option *ngFor="let i of arregloDirector">{{i.nombreDirector}}</option>
-          </select>
-        </div>
-        <br>
-        <div>
-          <select>
-            <option *ngFor="let i of arregloGuionista">{{i.nombreGuionista}}</option>
-          </select>
+          <p>
+            <label for="">Guionista:</label>
+            <select>
+              <option *ngFor="let i of arregloGuionista">{{i.nombreGuionista}}</option>
+            </select>
+          </p>
         </div>
       </div>
     </div>
