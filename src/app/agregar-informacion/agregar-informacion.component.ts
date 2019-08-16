@@ -51,11 +51,15 @@ export class AgregarInformacionComponent implements OnInit {
       imagenPelicula:["",Validators.required],
       paisOrigenPelicula:["",Validators.required],
       duracionPelicula:["",Validators.required],
+      nombreActor:["",Validators.required],
+      nombreDirector:["",Validators.required],
+      nombreProductor:["",Validators.required],
+      nombreGuionista:["",Validators.required],
       calificacionFinalPelicula:["",Validators.required]
     });
   }
 
-  public guardarPelicula(idActor:number, idGuinista:number, idDirector:number, idProductor:number){
+  public guardarPelicula(){
     let tituloPeliculaForm = this.frmPeliculas.get('tituloPelicula').value;
     let generoPeliculaForm = this.frmPeliculas.get('generoPelicula').value;
     let fechaEstrenoPeliculaForm = this.frmPeliculas.get('fechaEstrenoPelicula').value;
@@ -64,15 +68,64 @@ export class AgregarInformacionComponent implements OnInit {
     let paisOrigenPeliculaForm = this.frmPeliculas.get('paisOrigenPelicula').value;
     let duracionPeliculaForm = this.frmPeliculas.get(' duracionPelicula').value;
     let calificacionFinalPeliculaForm = this.frmPeliculas.get('calificacionFinalPelicula').value;
-    this.API.guardarPelicula(idActor, idGuinista, idDirector, idProductor,tituloPeliculaForm, generoPeliculaForm, fechaEstrenoPeliculaForm, resumenPeliculaForm, imagenPeliculaForm,paisOrigenPeliculaForm,duracionPeliculaForm, calificacionFinalPeliculaForm).subscribe(
+    let nombreActorForm = this.frmPeliculas.get('nombreActor').value;
+    let nombreDirectorForm = this.frmPeliculas.get('nombreDirector').value;
+    let nombreProductorForm = this.frmPeliculas.get('nombreProductor').value;
+    let nombreGuionistaForm = this.frmPeliculas.get('nombreGuionista').value;
+    //aqui se hace el intercambio de nombre a ID
+    let idActor:number, idGuionista:number, idDirector:number, idProductor:number;
+
+    this.API.mostrarIDActor(nombreActorForm).subscribe(
       (success:any)=>{
         console.log("exito!: "+ success);
+        idActor = success;
+      },
+      (error)=>{
+        console.log("sigue intentando :'( " + error);
+      }
+    );
+
+    this.API.mostrarIDGuionista(nombreGuionistaForm).subscribe(
+      (success:any)=>{
+        console.log("exito!: "+ success);
+        idGuionista = success;
+      },
+      (error)=>{
+        console.log("sigue intentando :'( " + error);
+      }
+    );
+
+    this.API.mostrarIDDirector(nombreDirectorForm).subscribe(
+      (success:any)=>{
+        console.log("exito!: "+ success);
+        idDirector = success;
+      },
+      (error)=>{
+        console.log("sigue intentando :'( " + error);
+      }
+    );
+
+    this.API.mostrarIDProductor(nombreProductorForm).subscribe(
+      (success:any)=>{
+        console.log("exito!: "+ success);
+        idProductor = success;
+      },
+      (error)=>{
+        console.log("sigue intentando :'( " + error);
+      }
+    );
+
+
+
+    this.API.guardarPelicula(idActor, idGuionista, idDirector, idProductor,tituloPeliculaForm, generoPeliculaForm, fechaEstrenoPeliculaForm, resumenPeliculaForm, imagenPeliculaForm,paisOrigenPeliculaForm,duracionPeliculaForm, calificacionFinalPeliculaForm).subscribe(
+      (success:any)=>{
         this.arregloPeliculas = success;
+        alert("Pelicula Agregada")
         console.log(JSON.stringify(this.arregloPeliculas))
       },
       (error)=>{
         console.log(error);
-        console.log("sigue intentado!!");
+        alert("...Hubo un Problema...");
       }
     );
   }

@@ -30,10 +30,10 @@ export class ApiService {
   }
 
   public guardarPelicula(idActor:number, idGuinista:number, idDirector:number, idProductor:number, tituloPelicula:string, generoPelicula:string, fechaEstrenoPelicula:string, resumenPelicula:string, imagenPelicula:string,paisOrigenPelicula:string,duracionPelicula:string, calificacionFinalPelicula:number){
-    let cambioaID: any = this.mostrarActor();
-    idActor = cambioaID;
+    //let cambioaID: any = this.mostrarIDActor();
+    //idActor = cambioaID;
 
-    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {tituloPelicula,generoPelicula,fechaEstrenoPelicula,resumenPelicula,imagenPelicula,paisOrigenPelicula,duracionPelicula,calificacionFinalPelicula},{headers:this.headers});
+    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {idActor, idGuinista, idDirector, idProductor,tituloPelicula,generoPelicula,fechaEstrenoPelicula,resumenPelicula,imagenPelicula,paisOrigenPelicula,duracionPelicula,calificacionFinalPelicula},{headers:this.headers});
   }
 
   public mostrarActor(){
@@ -51,9 +51,6 @@ export class ApiService {
   public mostrarProductor(){
     return this.http.get('http://localhost/apiPeliculas/productores/productor.php', {headers:this.headers});
   }
-  public mostrarIDActor(nombreActor:string){
-    return this.http.get('http://localhost/apiPeliculas/actores/mostrarID.php?nombreActor='+nombreActor, {headers:this.headers});
-  }
 
   mostrarComentarios(){
     return this.http.get('http://localhost/apiPeliculas/comentarios/comentario.php',{headers:this.headers});
@@ -62,6 +59,26 @@ export class ApiService {
   public webScraping(){
     return this.http.get('http://localhost/web_scraping/hey.php');
   }
+
+//LOS SIGUIENTES METODOS CAMBIAN DE NOMBRE A ID (AL USUARIO SE LE HACE MAS FÁCIL IDENTIFICAR POR NOMBRE QUE POR ID UNA FOREIGN KEY)
+
+public mostrarIDActor(nombreActor:string){
+  return this.http.get('http://localhost/apiPeliculas/actores/mostrarID.php?nombreActor='+nombreActor, {headers:this.headers});
+}
+
+public mostrarIDProductor(nombreProductor:string){
+  return this.http.get('http://localhost/apiPeliculas/productores/mostrarID.php?nombreProductor='+nombreProductor, {headers:this.headers});
+}
+
+public mostrarIDDirector(nombreDirector:string){
+  return this.http.get('http://localhost/apiPeliculas/directores/mostrarID.php?nombreDirector='+nombreDirector, {headers:this.headers});
+}
+
+public mostrarIDGuionista(nombreGuionista:string){
+  return this.http.get('http://localhost/apiPeliculas/guionistas/mostrarID.php?nombreGuionista='+nombreGuionista, {headers:this.headers});
+}
+
+
 
 
 }

@@ -25,7 +25,7 @@
         <div>
           <p>
             <label for="">Protagonista:</label>
-            <select>
+            <select formControlName="nombreActor">
               <option *ngFor="let i of arregloActor">{{i.nombreActor}}</option>
             </select>
           </p>
@@ -33,7 +33,7 @@
         <div>
           <p>
             <label for="">Productor:</label>
-            <select>
+            <select formControlName="nombreProductor">
               <option *ngFor="let i of arregloProductor">{{i.nombreProductor}}</option>
             </select>
           </p>
@@ -64,8 +64,8 @@
         <label *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
         <div>
           <p>
-            <label for="">Director:</label>
-            <select>
+            <label>Director:</label>
+            <select formControlName="nombreDirector">
               <option *ngFor="let i of arregloDirector">{{i.nombreDirector}}</option>
             </select>
           </p>
@@ -73,7 +73,7 @@
         <div>
           <p>
             <label for="">Guionista:</label>
-            <select>
+            <select formControlName="nombreGuionista">
               <option *ngFor="let i of arregloGuionista">{{i.nombreGuionista}}</option>
             </select>
           </p>
@@ -81,7 +81,50 @@
       </div>
     </div>
   </form>
-  <div class="w3-center">
-    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula">Agregar Pelicula</button>
+
+
+  <!--h4 style="text-align: center;color: white;">Calcula el éxito de la pélicula según su promedio:</h4>
+  <div>
+    <label>Ingresa Calificacion de 3 obras Previas del Protagonista:</label>
+    <div name="grupoInputsPromedio">
+      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
+    </div>
   </div>
+  <br>
+  <div>
+    <label>Ingresa Calificacion de 3 obras Previas del Director:</label>
+    <div name="grupoInputsPromedio">
+      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
+    </div>
+  </div>
+  <br>
+  <div>
+    <label>Ingresa Calificacion de 3 obras Previas del Guionista:</label>
+    <div name="grupoInputsPromedio">
+      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
+    </div>
+  </div>
+  <br>
+  <div>
+    <label>Ingresa Calificacion de 3 obras Previas del Productor:</label>
+    <div name="grupoInputsPromedio">
+      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
+      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
+    </div>
+  </div>
+  <div class="w3-center">
+    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula()">Calcular Éxito</button>
+  </div>
+
+  <div class="w3-center">
+    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula()">Agregar Pelicula</button>
+  </div-->
+
 </div>
