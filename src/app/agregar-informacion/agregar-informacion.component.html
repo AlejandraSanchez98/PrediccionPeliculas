@@ -1,60 +1,87 @@
 <h3 class="w3-center" style="margin: 30px"><b>Agregar Información Pelicula</b></h3>
-    <div style="margin-left: 60px; margin-right: 60px; margin-bottom: 60px; margin-top: 10px; opacity: 0.9;">
-        <form [formGroup]= "frmPeliculas">
-            <div class="w3-row">
-                <div class="w3-col m6">
-                    <div>
-                        <input formControlName="tituloPelicula" class="w3-input" type="text" placeholder="Titulo de la pelicula" >
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.tituloPelicula.invalid && frmPeliculas.controls.tituloPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <input formControlName="generoPelicula" class="w3-input" type="text" placeholder="Genero de la Pelicula" value="generoPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.generoPelicula.invalid && frmPeliculas.controls.generoPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <input formControlName="fechaEstrenoPelicula" class="w3-input" type="text" placeholder="Fecha de estreno de la pelicula" value="fechaEstrenoPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.fechaEstrenoPelicula.invalid && frmPeliculas.controls.fechaEstrenoPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <input formControlName="resumenPelicula" class="w3-input" type="text" placeholder="Resumen de la Pelicula" value="resumenPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.resumenPelicula.invalid && frmPeliculas.controls.resumenPelicula.dirty">Este campo es obligatorio</label>
-                </div>
-                <div class="w3-col m6">
-                    <div>
-                        <input formControlName="imagenPelicula" class="w3-input" type="text" placeholder="Imagen de la Pelicula" value="imagenPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.imagenPelicula.invalid && frmPeliculas.controls.imagenPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <input formControlName="paisOrigenPelicula" class="w3-input" type="text" placeholder="Pais de la Pelicula" value="paisOrigenPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.paisOrigenPelicula.invalid && frmPeliculas.controls.paisOrigenPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <input formControlName="duracionPelicula" class="w3-input" type="text" placeholder="Duración de la Pelicula" value="duracionPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.duracionPelicula.invalid && frmPeliculas.controls.duracionPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <input formControlName="calificacionFinalPelicula" class="w3-input" type="text" placeholder="Calificación  de la Pelicula" value="calificacionFinalPelicula">
-                    </div>
-                    <label *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
-                    <br>
-                    <div>
-                        <select>
-                            <option *ngFor="let i of arregloActor">{{i.nombreActor}}</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <div class="w3-center">
-            <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula">Agregar Pelicula</button>
+<div id="idAdd" class="contenedorAdd">
+  <form [formGroup]= "frmPeliculas">
+    <div class="w3-row">
+      <div class="w3-col m6">
+        <div>
+          <input formControlName="tituloPelicula" class="w3-input" type="text" placeholder="Titulo de la pelicula" >
         </div>
-    </div>
-    
+        <label *ngIf="frmPeliculas.controls.tituloPelicula.invalid && frmPeliculas.controls.tituloPelicula.dirty">Este campo es obligatorio</label>
+        <br>
+        <div>
+          <input formControlName="generoPelicula" class="w3-input" type="text" placeholder="Genero de la Pelicula" value="generoPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.generoPelicula.invalid && frmPeliculas.controls.generoPelicula.dirty">Este campo es obligatorio</label>
+        <br>
+        <div>
+          <input formControlName="fechaEstrenoPelicula" class="w3-input" type="text" placeholder="Fecha de estreno de la pelicula" value="fechaEstrenoPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.fechaEstrenoPelicula.invalid && frmPeliculas.controls.fechaEstrenoPelicula.dirty">Este campo es obligatorio</label>
+        <br>
+        <div>
+          <input formControlName="resumenPelicula" class="w3-input" type="text" placeholder="Resumen de la Pelicula" value="resumenPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.resumenPelicula.invalid && frmPeliculas.controls.resumenPelicula.dirty">Este campo es obligatorio</label>
+        <div>
+          <p>
+            <label for="">Protagonista:</label>
+            <select>
+              <option *ngFor="let i of arregloActor">{{i.nombreActor}}</option>
+            </select>
+          </p>
+        </div>
+        <div>
+          <p>
+            <label for="">Productor:</label>
+            <select>
+              <option *ngFor="let i of arregloProductor">{{i.nombreProductor}}</option>
+            </select>
+          </p>
+        </div>
+        <br>
+      </div>
 
+
+      <div class="w3-col m6">
+        <div>
+          <input formControlName="imagenPelicula" class="w3-input" type="text" placeholder="Imagen de la Pelicula" value="imagenPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.imagenPelicula.invalid && frmPeliculas.controls.imagenPelicula.dirty">Este campo es obligatorio</label>
+        <br>
+        <div>
+          <input formControlName="paisOrigenPelicula" class="w3-input" type="text" placeholder="Pais de la Pelicula" value="paisOrigenPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.paisOrigenPelicula.invalid && frmPeliculas.controls.paisOrigenPelicula.dirty">Este campo es obligatorio</label>
+        <br>
+        <div>
+          <input formControlName="duracionPelicula" class="w3-input" type="text" placeholder="Duración de la Pelicula" value="duracionPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.duracionPelicula.invalid && frmPeliculas.controls.duracionPelicula.dirty">Este campo es obligatorio</label>
+        <br>
+        <div>
+          <input formControlName="calificacionFinalPelicula" class="w3-input" type="text" placeholder="Calificación  de la Pelicula" value="calificacionFinalPelicula">
+        </div>
+        <label *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
+        <div>
+          <p>
+            <label for="">Director:</label>
+            <select>
+              <option *ngFor="let i of arregloDirector">{{i.nombreDirector}}</option>
+            </select>
+          </p>
+        </div>
+        <div>
+          <p>
+            <label for="">Guionista:</label>
+            <select>
+              <option *ngFor="let i of arregloGuionista">{{i.nombreGuionista}}</option>
+            </select>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="w3-center">
+    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula">Agregar Pelicula</button>
+  </div>
+</div>

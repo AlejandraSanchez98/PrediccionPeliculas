@@ -49,7 +49,7 @@ export class ApiService {
   }
 
   public mostrarProductor(){
-    return this.http.get('http://localhost/apiPeliculas/Productores/productor.php', {headers:this.headers});
+    return this.http.get('http://localhost/apiPeliculas/productores/productor.php', {headers:this.headers});
   }
   public mostrarIDActor(nombreActor:string){
     return this.http.get('http://localhost/apiPeliculas/actores/mostrarID.php?nombreActor='+nombreActor, {headers:this.headers});
@@ -58,7 +58,7 @@ export class ApiService {
   mostrarComentarios(){
     return this.http.get('http://localhost/apiPeliculas/comentarios/comentario.php',{headers:this.headers});
   }
-  
+
   public webScraping(){
     return this.http.get('http://localhost/web_scraping/hey.php');
   }

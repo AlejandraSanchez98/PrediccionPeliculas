@@ -6,6 +6,5 @@
 
  $objGuio = new Guionista();
  $arreglo = $objGuio->cargar();
-
  echo(json_encode($arreglo));
  ?>

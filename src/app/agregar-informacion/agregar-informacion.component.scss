@@ -1,46 +1,62 @@
 .mat-tab-group {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
 }
 
 input[type=text], select {
-    width: 100%;
-    padding: 10;
-    margin: 5px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input[type=submit] {
-    width: 100%;
-    background-color:  rgb(243, 166, 51);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color:  rgb(243, 166, 51);
-  }
-  
-  div {
-    border-radius: 5px;
-    background-color: black;
-    padding: 10px;
-  }
+  width: 100%;
+  padding: 10;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
-  .colorbotonFormulario{
-    background-color:  rgb(243, 166, 51);
-    color: white;
-  }
+input[type=submit] {
+  width: 100%;
+  background-color:  rgb(243, 166, 51);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color:  rgb(243, 166, 51);
+}
+
+div {
+  border-radius: 5px;
+  background-color: black;
+  padding: 10px;
+}
+
+.colorbotonFormulario{
+  background-color: #f3a633;
+  color: black;
+  border-radius: 6px;
+  width: 300px;
+  font-weight: 400;
+}
 
 
-  label{
-    color: white;
-    margin: 10px;
-    text-align: center;
-  }
+label{
+  color: white;
+  margin: 10px;
+  text-align: center;
+}
+
+#idAdd{
+  overflow: scroll;
+  height: 480px;
+  width: 90%;
+}
+.contenedorAdd{
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 60px;
+  margin-top: 10px;
+  opacity: 0.9;
+}

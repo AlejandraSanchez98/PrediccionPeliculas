@@ -40,7 +40,7 @@
     {
       //$query = "SELECT PL.titulo_pelicula,  PL.fecha_estreno, PL.duracion_pelicula, PL.pais_pelicula, PL.genero_pelicula, PL.resumen_pelicula, PL.calificacion, GUI.nombre FROM pelicula PL JOIN guionista GUI WHERE PL.Id_pelis = GUI.id_guio;
 
-     $query = "SELECT PL.tituloPelicula,  PL.fechaEPelicula, PL.duracionPelicula, PL.paisPelicula, PL.generoPelicula, PL.resumenPelicula, PL.calificacionPelicula, GUI.nombreGuionista, DIR.nombreDirector, ACT.nombreActor, PRO.nombreProductor
+     $query = "SELECT PL.tituloPelicula,  PL.fechaEPelicula, PL.imagenPelicula, PL.duracionPelicula, PL.paisPelicula, PL.generoPelicula, PL.resumenPelicula, PL.calificacionPelicula, GUI.nombreGuionista, DIR.nombreDirector, ACT.nombreActor, PRO.nombreProductor
       FROM pelicula PL
       INNER JOIN guionista GUI On PL.idGuionista  = GUI.idGuionista
       INNER JOIN director DIR On PL.idDirector  = DIR.idDirector
