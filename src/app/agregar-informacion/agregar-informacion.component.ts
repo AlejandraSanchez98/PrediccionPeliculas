@@ -37,7 +37,7 @@ export class AgregarInformacionComponent implements OnInit {
     });
   }
 
-  public guardarPelicula(){
+  public guardarPelicula(idActor:number, idGuinista:number, idDirector:number, idProductor:number){
     let tituloPeliculaForm = this.frmPeliculas.get('tituloPelicula').value;
     let generoPeliculaForm = this.frmPeliculas.get('generoPelicula').value;
     let fechaEstrenoPeliculaForm = this.frmPeliculas.get('fechaEstrenoPelicula').value;
@@ -46,7 +46,7 @@ export class AgregarInformacionComponent implements OnInit {
     let paisOrigenPeliculaForm = this.frmPeliculas.get('paisOrigenPelicula').value;
     let duracionPeliculaForm = this.frmPeliculas.get(' duracionPelicula').value;
     let calificacionFinalPeliculaForm = this.frmPeliculas.get('calificacionFinalPelicula').value;
-    this.API.guardarPelicula(tituloPeliculaForm, generoPeliculaForm, fechaEstrenoPeliculaForm, resumenPeliculaForm, imagenPeliculaForm,paisOrigenPeliculaForm,duracionPeliculaForm, calificacionFinalPeliculaForm).subscribe(
+    this.API.guardarPelicula(idActor, idGuinista, idDirector, idProductor,tituloPeliculaForm, generoPeliculaForm, fechaEstrenoPeliculaForm, resumenPeliculaForm, imagenPeliculaForm,paisOrigenPeliculaForm,duracionPeliculaForm, calificacionFinalPeliculaForm).subscribe(
       (success:any)=>{
         console.log("exito!: "+ success);
         this.arregloPeliculas = success;

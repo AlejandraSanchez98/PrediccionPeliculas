@@ -4,14 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 
 export interface IInformacionPeliculas{
   idPelicula: number;
-  idActor:number;
-  idDirector:number;
-  idGuionista:number;
-  idProductor:number;
-  nombreActor:string;
-  nombreDirector:string;
-  nombreGuionista:string;
-  nombreProductor:string;
   tituloPelicula: string;
   imagenPelicula: string;
   generoPelicula: string;
@@ -37,7 +29,10 @@ export class ApiService {
     return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?idPelicula='+id,{headers:this.headers});
   }
 
-  public guardarPelicula(tituloPelicula:string, generoPelicula:string, fechaEstrenoPelicula:string, resumenPelicula:string, imagenPelicula:string,paisOrigenPelicula:string,duracionPelicula:string, calificacionFinalPelicula:number){
+  public guardarPelicula(idActor:number, idGuinista:number, idDirector:number, idProductor:number, tituloPelicula:string, generoPelicula:string, fechaEstrenoPelicula:string, resumenPelicula:string, imagenPelicula:string,paisOrigenPelicula:string,duracionPelicula:string, calificacionFinalPelicula:number){
+    let cambioaID: any = this.mostrarActor();
+    idActor = cambioaID;
+
     return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {tituloPelicula,generoPelicula,fechaEstrenoPelicula,resumenPelicula,imagenPelicula,paisOrigenPelicula,duracionPelicula,calificacionFinalPelicula},{headers:this.headers});
   }
 
@@ -56,15 +51,17 @@ export class ApiService {
   public mostrarProductor(){
     return this.http.get('http://localhost/apiPeliculas/Productores/productor.php', {headers:this.headers});
   }
+  public mostrarIDActor(nombreActor:string){
+    return this.http.get('http://localhost/apiPeliculas/actores/mostrarID.php?nombreActor='+nombreActor, {headers:this.headers});
+  }
 
+  mostrarComentarios(){
+    return this.http.get('http://localhost/apiPeliculas/comentarios/comentario.php',{headers:this.headers});
+  }
+  
   public webScraping(){
     return this.http.get('http://localhost/web_scraping/hey.php');
   }
-
-  public mostrarComentarios(){
-    return this.http.get('http://localhost/apiPeliculas/comentarios/comentario.php');
-  }
-
 
 
 }
