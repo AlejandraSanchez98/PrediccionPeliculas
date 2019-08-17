@@ -39,16 +39,46 @@ export class AgregarInformacionComponent implements OnInit {
   public arregloGuionista: IGuionista[];
   public frmPeliculas: FormGroup;
   public formValid:Boolean=false;
+  obraPreviaD1:number;
+  obraPreviaD2:number;
+  obraPreviaD3:number;
+  obraPreviaP1:number;
+  obraPreviaP2:number;
+  obraPreviaP3:number;
+  obraPreviaA1:number;
+  obraPreviaA2:number;
+  obraPreviaA3:number;
+  numtotal:number;
+  PromedioD:number;
+  PromedioP:number;
+  PromedioA:number;
+  PromedioTotal:number;
+
   constructor( public formBuilder: FormBuilder, public router: Router, public API:ApiService) {
     this.arregloPeliculas = [];
     this.arregloActor = [];
+    this.obraPreviaD1=0;
+    this.obraPreviaD2=0;
+    this.obraPreviaD3=0;
+    this.obraPreviaP1=0;
+    this.obraPreviaP2=0;
+    this.obraPreviaP3=0;
+    this.obraPreviaA1=0;
+    this.obraPreviaA2=0;
+    this.obraPreviaA3=0;
+    this.numtotal=9;
+    this.PromedioD=0;
+    this.PromedioP=0;
+    this.PromedioA=0;
+    this.PromedioTotal=0;
+
 
     this.frmPeliculas = this.formBuilder.group({
       tituloPelicula:["",Validators.required],
       generoPelicula:["",Validators.required],
       fechaEstrenoPelicula:["",Validators.required],
       resumenPelicula:["",Validators.required],
-      imagenPelicula:["",Validators.required],
+      imagen:["",Validators.required],
       paisOrigenPelicula:["",Validators.required],
       duracionPelicula:["",Validators.required],
       nombreActor:["",Validators.required],
@@ -64,60 +94,16 @@ export class AgregarInformacionComponent implements OnInit {
     let generoPeliculaForm = this.frmPeliculas.get('generoPelicula').value;
     let fechaEstrenoPeliculaForm = this.frmPeliculas.get('fechaEstrenoPelicula').value;
     let resumenPeliculaForm = this.frmPeliculas.get('resumenPelicula').value;
-    let imagenPeliculaForm = this.frmPeliculas.get(' imagenPelicula').value;
+    let imagenPeliculaForm = this.frmPeliculas.get('imagen').value;
     let paisOrigenPeliculaForm = this.frmPeliculas.get('paisOrigenPelicula').value;
-    let duracionPeliculaForm = this.frmPeliculas.get(' duracionPelicula').value;
+    let duracionPeliculaForm = this.frmPeliculas.get('duracionPelicula').value;
     let calificacionFinalPeliculaForm = this.frmPeliculas.get('calificacionFinalPelicula').value;
-    let nombreActorForm = this.frmPeliculas.get('nombreActor').value;
-    let nombreDirectorForm = this.frmPeliculas.get('nombreDirector').value;
-    let nombreProductorForm = this.frmPeliculas.get('nombreProductor').value;
-    let nombreGuionistaForm = this.frmPeliculas.get('nombreGuionista').value;
+    let idActor = this.frmPeliculas.get('nombreActor').value;
+    let idDirector = this.frmPeliculas.get('nombreDirector').value;
+    let idProductor = this.frmPeliculas.get('nombreProductor').value;
+    let idGuionista = this.frmPeliculas.get('nombreGuionista').value;
     //aqui se hace el intercambio de nombre a ID
-    let idActor:number, idGuionista:number, idDirector:number, idProductor:number;
-
-    this.API.mostrarIDActor(nombreActorForm).subscribe(
-      (success:any)=>{
-        console.log("exito!: "+ success);
-        idActor = success;
-      },
-      (error)=>{
-        console.log("sigue intentando :'( " + error);
-      }
-    );
-
-    this.API.mostrarIDGuionista(nombreGuionistaForm).subscribe(
-      (success:any)=>{
-        console.log("exito!: "+ success);
-        idGuionista = success;
-      },
-      (error)=>{
-        console.log("sigue intentando :'( " + error);
-      }
-    );
-
-    this.API.mostrarIDDirector(nombreDirectorForm).subscribe(
-      (success:any)=>{
-        console.log("exito!: "+ success);
-        idDirector = success;
-      },
-      (error)=>{
-        console.log("sigue intentando :'( " + error);
-      }
-    );
-
-    this.API.mostrarIDProductor(nombreProductorForm).subscribe(
-      (success:any)=>{
-        console.log("exito!: "+ success);
-        idProductor = success;
-      },
-      (error)=>{
-        console.log("sigue intentando :'( " + error);
-      }
-    );
-
-
-
-    this.API.guardarPelicula(idActor, idGuionista, idDirector, idProductor,tituloPeliculaForm, generoPeliculaForm, fechaEstrenoPeliculaForm, resumenPeliculaForm, imagenPeliculaForm,paisOrigenPeliculaForm,duracionPeliculaForm, calificacionFinalPeliculaForm).subscribe(
+    this.API.guardarPelicula(idGuionista,idDirector,idProductor,idActor,tituloPeliculaForm, generoPeliculaForm, fechaEstrenoPeliculaForm, resumenPeliculaForm, imagenPeliculaForm,paisOrigenPeliculaForm,duracionPeliculaForm, calificacionFinalPeliculaForm).subscribe(
       (success:any)=>{
         this.arregloPeliculas = success;
         alert("Pelicula Agregada")
@@ -201,6 +187,13 @@ export class AgregarInformacionComponent implements OnInit {
     );
   }
 
+
+  public ObtenerPromedio(){
+      this.PromedioD = this.obraPreviaD1+this.obraPreviaD2+this.obraPreviaD3;
+      this.PromedioP = this.obraPreviaP1+this.obraPreviaP2+this.obraPreviaP3;
+      this.PromedioA = this.obraPreviaA1+this.obraPreviaA2+this.obraPreviaA3;
+      this.PromedioTotal= (this.PromedioD+this.PromedioP+this.PromedioA)/this.numtotal;
+  }
 
   ngOnInit() {
     this.mostrarActor();

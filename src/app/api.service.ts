@@ -12,6 +12,11 @@ export interface IInformacionPeliculas{
   paisOrigenPelicula: string;
   duracionPelicula: string;
   calificacionFinalPelicula: number;
+  idGuionista:number;
+  idDirector:number;
+  idProductor:number;
+  idActor:number;
+
 }
 
 @Injectable({
@@ -29,11 +34,9 @@ export class ApiService {
     return this.http.get('http://localhost/apiPeliculas/peliculas/tablasUnion.php?idPelicula='+id,{headers:this.headers});
   }
 
-  public guardarPelicula(idActor:number, idGuinista:number, idDirector:number, idProductor:number, tituloPelicula:string, generoPelicula:string, fechaEstrenoPelicula:string, resumenPelicula:string, imagenPelicula:string,paisOrigenPelicula:string,duracionPelicula:string, calificacionFinalPelicula:number){
-    //let cambioaID: any = this.mostrarIDActor();
-    //idActor = cambioaID;
+  public guardarPelicula(idGuionista:number,idDirector:number,idProductor:number,idActor:number,tituloPelicula:string, generoPelicula:string, fechaEPelicula:string, resumenPelicula:string, imagenPelicula:string,paisPelicula:string,duracionPelicula:string, calificacionPelicula:number){
 
-    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {idActor, idGuinista, idDirector, idProductor,tituloPelicula,generoPelicula,fechaEstrenoPelicula,resumenPelicula,imagenPelicula,paisOrigenPelicula,duracionPelicula,calificacionFinalPelicula},{headers:this.headers});
+    return this.http.post('http://localhost/apiPeliculas/peliculas/guardarPelicula.php', {idGuionista,idDirector,idProductor,idActor,tituloPelicula,generoPelicula,fechaEPelicula,resumenPelicula,imagenPelicula,paisPelicula,duracionPelicula,calificacionPelicula},{headers:this.headers});
   }
 
   public mostrarActor(){

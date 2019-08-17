@@ -20,9 +20,11 @@ const arrayImg = [];
 export class HomeComponent implements OnInit {
 //FRANCIS ES NUESTRO AMO Y SEÑOR HIJOS DEL PENE!
   //PROPIEDADES:
+  public paginaActual : number;
   public arregloPeliculas: IInformacionPeliculas[];
   constructor(public router: Router, public API:ApiService) {
     this.arregloPeliculas = [];
+    this.paginaActual = 1;
   }
 
   //FILTRA SOLO LA INFORMACION DE LA PELICULA SELECCIONADA
@@ -72,6 +74,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     /*PRACTICAMENTE SERIA AQUI UN SELECT * FROM DE PELICULAS, UNICAMENTE DEJANDO LA IMAGEN*/
     this.mostrarPeliculas();
+    window.localStorage.removeItem('user');
   }
 
 }

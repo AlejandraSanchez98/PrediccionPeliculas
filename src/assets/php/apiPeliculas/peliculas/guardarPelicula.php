@@ -2,7 +2,7 @@
   header("Content-Type: application/json");
   header("Access-Control-Allow-Origin:*");
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+  header('Access-Control-Allow-Methods: GET, decodificar, PUT, DELETE');
 
 
   include("clsPelicula.php");
@@ -10,15 +10,20 @@
   include("../conexion.php");
 
   $objPeli = new Pelicula();
-  //$objPeli->Id_peliculas=$_GET["Id_peliculas"];
-  $objPeli->tituloPelicula =$_GET["tituloPelicula"];
-  $objPeli->generoPelicula=$_GET["generoPelicula"];
-  $objPeli->fechaEPelicula=$_GET["fechaEPelicula"];
-  $objPeli->resumenPelicula=$_GET["resumenPelicula"];
-  $objPeli->imagenPelicula=$_GET["imagenPelicula"];
-  $objPeli->paisPelicula=$_GET["paisPelicula"];
-  $objPeli->duracionPelicula=$_GET["duracionPelicula"];
-  $objPeli->calificacionPelicula=$_GET["calificacionPelicula"];
+  //echo file_get_contents("php://input"); //regresa un json de toda la entrada
+  $decodificar= json_decode(file_get_contents("php://input"));
+  $objPeli->tituloPelicula =$decodificar->tituloPelicula;
+  $objPeli->generoPelicula=$decodificar->generoPelicula;
+  $objPeli->fechaEPelicula=$decodificar->fechaEPelicula;
+  $objPeli->resumenPelicula=$decodificar->resumenPelicula;
+  $objPeli->imagenPelicula=$decodificar->imagenPelicula;
+  $objPeli->paisPelicula=$decodificar->paisPelicula;
+  $objPeli->duracionPelicula=$decodificar->duracionPelicula;
+  $objPeli->calificacionPelicula=$decodificar->calificacionPelicula;
+  $objPeli->idActor=$decodificar->idActor;
+  $objPeli->idGuionista=$decodificar->idGuionista;
+  $objPeli->idDirector=$decodificar->idDirector;
+  $objPeli->idProductor=$decodificar->idProductor;
 
   $resultado = $objPeli->guardar();
 

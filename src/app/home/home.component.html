@@ -1,5 +1,8 @@
 <div class="w3-row" style="padding: 20px;margin-top: 20px;">
-    <div class="w3-col m2" *ngFor="let i of arregloPeliculas">
+    <div class="w3-col m2" *ngFor="let i of arregloPeliculas | paginate: { itemsPerPage: 12, currentPage: paginaActual }; let i = index">
         <img alt="cargando..." class="img" src="{{i.imagenPelicula}}" (click)="navegarxPelicula(i.idPelicula)">
+    </div>
+    <div class="text-center">
+      <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
     </div>
 </div>

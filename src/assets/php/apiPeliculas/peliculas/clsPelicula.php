@@ -11,6 +11,10 @@
     public $paisPelicula;
     public $duracionPelicula;
     public $calificacionPelicula;
+    public $idActor;
+    public $idGuionista;
+    public $idDirector;
+    public $idProductor;
 
     function __construct()
     {
@@ -33,7 +37,7 @@
     }
     public function guardar()
     {
-      $query = "INSERT INTO pelicula(tituloPelicula,generoPelicula,fechaEPelicula,resumenPelicula,imagenPelicula,paisPelicula,duracionPelicula,calificacionPelicula) VALUES ('{$this->tituloPelicula}','{$this->generoPelicula}','{$this->fechaEPelicula}','{$this->resumenPelicula}','{$this->imagenPelicula}','{$this->paisPelicula}','{$this->duracionPelicula}','{$this->calificacionPelicula}')";
+      $query = "INSERT INTO pelicula(idGuionista,idDirector,idProductor,idActor,tituloPelicula,generoPelicula,fechaEPelicula,resumenPelicula,imagenPelicula,paisPelicula,duracionPelicula,calificacionPelicula) VALUES ('{$this->idGuionista}','{$this->idDirector}','{$this->idProductor}','{$this->idActor}','{$this->tituloPelicula}','{$this->generoPelicula}','{$this->fechaEPelicula}','{$this->resumenPelicula}','{$this->imagenPelicula}','{$this->paisPelicula}','{$this->duracionPelicula}','{$this->calificacionPelicula}')";
       return $this->conexion->ejecutar($query);
     }
     public function union()
@@ -45,7 +49,7 @@
       INNER JOIN guionista GUI On PL.idGuionista  = GUI.idGuionista
       INNER JOIN director DIR On PL.idDirector  = DIR.idDirector
       INNER JOIN autor ACT On PL.idActor = ACT.idActor
-      INNER JOIN productor PRO On PL.idProductor  = PRO.idProductor  WHERE idPelicula ='{$this->idPelicula}'"; 
+      INNER JOIN productor PRO On PL.idProductor  = PRO.idProductor  WHERE idPelicula ='{$this->idPelicula}'";
 
       return $this->conexion->ejecutarQuery($query);
     }

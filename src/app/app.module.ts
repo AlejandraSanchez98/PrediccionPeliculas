@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScrapingComponent } from './scraping/scraping.component';
 import { AgregarInformacionComponent } from './agregar-informacion/agregar-informacion.component';
 import { CalificacionComponent } from './calificacion/calificacion.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { CalificacionComponent } from './calificacion/calificacion.component';
     BrowserAnimationsModule,
     MatTabsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [
     ApiService,

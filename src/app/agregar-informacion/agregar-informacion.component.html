@@ -26,7 +26,7 @@
           <p>
             <label for="">Protagonista:</label>
             <select formControlName="nombreActor">
-              <option *ngFor="let i of arregloActor">{{i.nombreActor}}</option>
+              <option *ngFor="let i of arregloActor" value="{{i.idActor}}">{{i.nombreActor}}</option>
             </select>
           </p>
         </div>
@@ -34,7 +34,7 @@
           <p>
             <label for="">Productor:</label>
             <select formControlName="nombreProductor">
-              <option *ngFor="let i of arregloProductor">{{i.nombreProductor}}</option>
+              <option *ngFor="let i of arregloProductor" value="{{i.idProductor}}">{{i.nombreProductor}}</option>
             </select>
           </p>
         </div>
@@ -44,9 +44,9 @@
 
       <div class="w3-col m6">
         <div>
-          <input formControlName="imagenPelicula" class="w3-input" type="text" placeholder="Imagen de la Pelicula" value="imagenPelicula">
+          <input formControlName="imagen" class="w3-input" type="text" placeholder="Imagen de la Pelicula" value="imagenPelicula">
         </div>
-        <label *ngIf="frmPeliculas.controls.imagenPelicula.invalid && frmPeliculas.controls.imagenPelicula.dirty">Este campo es obligatorio</label>
+        <label *ngIf="frmPeliculas.controls.imagen.invalid && frmPeliculas.controls.imagen.dirty">Este campo es obligatorio</label>
         <br>
         <div>
           <input formControlName="paisOrigenPelicula" class="w3-input" type="text" placeholder="Pais de la Pelicula" value="paisOrigenPelicula">
@@ -59,14 +59,14 @@
         <label *ngIf="frmPeliculas.controls.duracionPelicula.invalid && frmPeliculas.controls.duracionPelicula.dirty">Este campo es obligatorio</label>
         <br>
         <div>
-          <input formControlName="calificacionFinalPelicula" class="w3-input" type="text" placeholder="Calificación  de la Pelicula" value="calificacionFinalPelicula">
+          <input formControlName="calificacionFinalPelicula" class="w3-input" type="number" step="0.01" placeholder="Calificacion" value="{{PromedioTotal}}">
         </div>
         <label *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
         <div>
           <p>
             <label>Director:</label>
             <select formControlName="nombreDirector">
-              <option *ngFor="let i of arregloDirector">{{i.nombreDirector}}</option>
+              <option *ngFor="let i of arregloDirector" value="{{i.idDirector}}">{{i.nombreDirector}}</option>
             </select>
           </p>
         </div>
@@ -74,57 +74,44 @@
           <p>
             <label for="">Guionista:</label>
             <select formControlName="nombreGuionista">
-              <option *ngFor="let i of arregloGuionista">{{i.nombreGuionista}}</option>
+              <option *ngFor="let i of arregloGuionista" value="{{i.idGuionista}}">{{i.nombreGuionista}}</option>
             </select>
           </p>
         </div>
       </div>
     </div>
   </form>
-
-
-  <!--h4 style="text-align: center;color: white;">Calcula el éxito de la pélicula según su promedio:</h4>
-  <div>
-    <label>Ingresa Calificacion de 3 obras Previas del Protagonista:</label>
-    <div name="grupoInputsPromedio">
-      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
-    </div>
-  </div>
-  <br>
-  <div>
-    <label>Ingresa Calificacion de 3 obras Previas del Director:</label>
-    <div name="grupoInputsPromedio">
-      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
-    </div>
-  </div>
-  <br>
-  <div>
-    <label>Ingresa Calificacion de 3 obras Previas del Guionista:</label>
-    <div name="grupoInputsPromedio">
-      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
-    </div>
-  </div>
-  <br>
-  <div>
-    <label>Ingresa Calificacion de 3 obras Previas del Productor:</label>
-    <div name="grupoInputsPromedio">
-      <input class="w3-input" type="text" placeholder="Calificación #1" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #2" style="width: 195px;">
-      <input class="w3-input" type="text" placeholder="Calificación #3" style="width: 195px;">
-    </div>
-  </div>
   <div class="w3-center">
-    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula()">Calcular Éxito</button>
+    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula()">Guardar</button>
   </div>
 
-  <div class="w3-center">
-    <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula()">Agregar Pelicula</button>
-  </div-->
 
+  <!--ESTO ES UNA PRUEBA DE LA PREDICCION FALTA EL CHAT! EL TRAILER SE DEBIO PONER UNA COLUMNA EN LA DB CON EL LINK DEL MISMO-->
+  <div  class="divPromedio">
+    <div class="w3-row">
+      <div class="w3-col m4">
+        <h1 class="w3-center">Director</h1>
+        obra previa 1: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaD1" type="number">
+        obra previa 2: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaD2" type="number">
+        obra previa 3: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaD3" type="number">
+      </div>
+      <div class="w3-col m4">
+        <h1 class="w3-center">Productor</h1>
+        obra previa 1: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaP1" type="number">
+        obra previa 2: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaP2" type="number">
+        obra previa 3: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaP3" type="number">
+      </div>
+      <div class="w3-col m4">
+        <h1 class="w3-center">Protagonista</h1>
+        obra previa 1: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaA1" type="number">
+        obra previa 2: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaA2" type="number">
+        obra previa 3: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaA3" type="number">
+      </div>
+    </div>
+    <br>
+    <div class="w3-center" style="margin:30px;">
+      <button type="button" class="w3-btn colorbotonFormulario" name="button" (click)="ObtenerPromedio()">Obtener exito</button><br>
+      <label step="0.01" for="">{{PromedioTotal}}</label>
+    </div>
+  </div>
 </div>
