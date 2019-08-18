@@ -59,9 +59,9 @@
         <label *ngIf="frmPeliculas.controls.duracionPelicula.invalid && frmPeliculas.controls.duracionPelicula.dirty">Este campo es obligatorio</label>
         <br>
         <div>
-          <input formControlName="calificacionFinalPelicula" class="w3-input" type="number" step="0.01" placeholder="Calificacion" value="{{PromedioTotal}}">
+          <input formControlName="calificacionFinalPelicula" class="w3-input" type="number" step="0.01" placeholder="Calificacion" value="{{PromedioTotal}}" readonly>
         </div>
-        <label *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
+        <label id="idPromedio" *ngIf="frmPeliculas.controls.calificacionFinalPelicula.invalid && frmPeliculas.controls.calificacionFinalPelicula.dirty">Este campo es obligatorio</label>
         <div>
           <p>
             <label>Director:</label>
@@ -86,7 +86,6 @@
   </div>
 
 
-  <!--ESTO ES UNA PRUEBA DE LA PREDICCION FALTA EL CHAT! EL TRAILER SE DEBIO PONER UNA COLUMNA EN LA DB CON EL LINK DEL MISMO-->
   <div  class="divPromedio">
     <div class="w3-row">
       <div class="w3-col m4">
@@ -109,6 +108,7 @@
       </div>
     </div>
     <br>
+    <!-- IDEA: HACER QUE EL BTN DE PROMEDIAR TAMBIEN A SU VEZ DESHABILITE LA PROPIEDAD REQUIERED DEL FormGroup -->
     <div class="w3-center" style="margin:30px;">
       <button type="button" class="w3-btn colorbotonFormulario" name="button" (click)="ObtenerPromedio()">Obtener exito</button><br>
       <label step="0.01" for="">{{PromedioTotal}}</label>

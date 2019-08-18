@@ -193,6 +193,7 @@ export class AgregarInformacionComponent implements OnInit {
       this.PromedioP = this.obraPreviaP1+this.obraPreviaP2+this.obraPreviaP3;
       this.PromedioA = this.obraPreviaA1+this.obraPreviaA2+this.obraPreviaA3;
       this.PromedioTotal= (this.PromedioD+this.PromedioP+this.PromedioA)/this.numtotal;
+      document.getElementById('idPromedio').style.display="none";
   }
 
   ngOnInit() {
