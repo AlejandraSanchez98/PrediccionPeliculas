@@ -80,38 +80,47 @@
         </div>
       </div>
     </div>
+
+
+    <!--COMIENZA EL PROMEDIO -->
+    <div  class="divPromedio">
+      <div class="w3-row">
+        <div class="w3-col m4">
+          <h1 class="w3-center">Director</h1>
+          obra previa 1: <input formControlName="obraPreviaD1" class="w3-input inputsPromedio" type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaD1.invalid && frmPeliculas.controls.obraPreviaD1.dirty">Este campo es obligatorio</label>
+          obra previa 2: <input formControlName="obraPreviaD2" class="w3-input inputsPromedio" type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaD2.invalid && frmPeliculas.controls.obraPreviaD2.dirty">Este campo es obligatorio</label>
+          obra previa 3: <input formControlName="obraPreviaD3" class="w3-input inputsPromedio" type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaD3.invalid && frmPeliculas.controls.obraPreviaD3.dirty">Este campo es obligatorio</label>
+        </div>
+        <div class="w3-col m4">
+          <h1 class="w3-center">Productor</h1>
+          obra previa 1: <input formControlName="obraPreviaP1" class="w3-input inputsPromedio"  type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaP1.invalid && frmPeliculas.controls.obraPreviaP1.dirty">Este campo es obligatorio</label>
+          obra previa 2: <input formControlName="obraPreviaP2" class="w3-input inputsPromedio"  type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaP2.invalid && frmPeliculas.controls.obraPreviaP2.dirty">Este campo es obligatorio</label>
+          obra previa 3: <input formControlName="obraPreviaP3" class="w3-input inputsPromedio"  type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaP3.invalid && frmPeliculas.controls.obraPreviaP3.dirty">Este campo es obligatorio</label>
+        </div>
+        <div class="w3-col m4">
+          <h1 class="w3-center">Protagonista</h1>
+          obra previa 1: <input formControlName="obraPreviaA1" class="w3-input inputsPromedio"  type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaA1.invalid && frmPeliculas.controls.obraPreviaA1.dirty">Este campo es obligatorio</label>
+          obra previa 2: <input formControlName="obraPreviaA2" class="w3-input inputsPromedio"  type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaA2.invalid && frmPeliculas.controls.obraPreviaA2.dirty">Este campo es obligatorio</label>
+          obra previa 3: <input formControlName="obraPreviaA3" class="w3-input inputsPromedio"  type="number">
+          <label *ngIf="frmPeliculas.controls.obraPreviaA3.invalid && frmPeliculas.controls.obraPreviaA3.dirty">Este campo es obligatorio</label>
+        </div>
+      </div>
+      <br>
+      <div class="w3-center" style="margin:30px;">
+        <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" name="button" (click)="ObtenerPromedio()">Obtener exito</button><br>
+        <label step="0.01" for="">{{PromedioTotal}}</label>
+      </div>
+    </div>
   </form>
   <div class="w3-center">
     <button type="button" class="w3-btn colorbotonFormulario" [disabled]="frmPeliculas.invalid" (click)="guardarPelicula()">Guardar</button>
-  </div>
-
-
-  <div  class="divPromedio">
-    <div class="w3-row">
-      <div class="w3-col m4">
-        <h1 class="w3-center">Director</h1>
-        obra previa 1: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaD1" type="number">
-        obra previa 2: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaD2" type="number">
-        obra previa 3: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaD3" type="number">
-      </div>
-      <div class="w3-col m4">
-        <h1 class="w3-center">Productor</h1>
-        obra previa 1: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaP1" type="number">
-        obra previa 2: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaP2" type="number">
-        obra previa 3: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaP3" type="number">
-      </div>
-      <div class="w3-col m4">
-        <h1 class="w3-center">Protagonista</h1>
-        obra previa 1: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaA1" type="number">
-        obra previa 2: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaA2" type="number">
-        obra previa 3: <input class="w3-input inputsPromedio" [(ngModel)]="obraPreviaA3" type="number">
-      </div>
-    </div>
-    <br>
-    <!-- IDEA: HACER QUE EL BTN DE PROMEDIAR TAMBIEN A SU VEZ DESHABILITE LA PROPIEDAD REQUIERED DEL FormGroup -->
-    <div class="w3-center" style="margin:30px;">
-      <button type="button" class="w3-btn colorbotonFormulario" name="button" (click)="ObtenerPromedio()">Obtener exito</button><br>
-      <label step="0.01" for="">{{PromedioTotal}}</label>
-    </div>
   </div>
 </div>

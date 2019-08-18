@@ -39,33 +39,15 @@ export class AgregarInformacionComponent implements OnInit {
   public arregloGuionista: IGuionista[];
   public frmPeliculas: FormGroup;
   public formValid:Boolean=false;
-  obraPreviaD1:number;
-  obraPreviaD2:number;
-  obraPreviaD3:number;
-  obraPreviaP1:number;
-  obraPreviaP2:number;
-  obraPreviaP3:number;
-  obraPreviaA1:number;
-  obraPreviaA2:number;
-  obraPreviaA3:number;
-  numtotal:number;
-  PromedioD:number;
-  PromedioP:number;
-  PromedioA:number;
-  PromedioTotal:number;
+  public numtotal:number;
+  public PromedioD:number;
+  public PromedioP:number;
+  public PromedioA:number;
+  public PromedioTotal:number;
 
   constructor( public formBuilder: FormBuilder, public router: Router, public API:ApiService) {
     this.arregloPeliculas = [];
     this.arregloActor = [];
-    this.obraPreviaD1=0;
-    this.obraPreviaD2=0;
-    this.obraPreviaD3=0;
-    this.obraPreviaP1=0;
-    this.obraPreviaP2=0;
-    this.obraPreviaP3=0;
-    this.obraPreviaA1=0;
-    this.obraPreviaA2=0;
-    this.obraPreviaA3=0;
     this.numtotal=9;
     this.PromedioD=0;
     this.PromedioP=0;
@@ -84,8 +66,17 @@ export class AgregarInformacionComponent implements OnInit {
       nombreActor:["",Validators.required],
       nombreDirector:["",Validators.required],
       nombreProductor:["",Validators.required],
+      obraPreviaD1:["",Validators.required],
+      obraPreviaD2:["",Validators.required],
+      obraPreviaD3:["",Validators.required],
+      obraPreviaP1:["",Validators.required],
+      obraPreviaP2:["",Validators.required],
+      obraPreviaP3:["",Validators.required],
+      obraPreviaA1:["",Validators.required],
+      obraPreviaA2:["",Validators.required],
+      obraPreviaA3:["",Validators.required],
       nombreGuionista:["",Validators.required],
-      calificacionFinalPelicula:["",Validators.required]
+      calificacionFinalPelicula:[""]
     });
   }
 
@@ -189,11 +180,22 @@ export class AgregarInformacionComponent implements OnInit {
 
 
   public ObtenerPromedio(){
-      this.PromedioD = this.obraPreviaD1+this.obraPreviaD2+this.obraPreviaD3;
-      this.PromedioP = this.obraPreviaP1+this.obraPreviaP2+this.obraPreviaP3;
-      this.PromedioA = this.obraPreviaA1+this.obraPreviaA2+this.obraPreviaA3;
-      this.PromedioTotal= (this.PromedioD+this.PromedioP+this.PromedioA)/this.numtotal;
-      document.getElementById('idPromedio').style.display="none";
+      let promedio = 0;
+      let obraPreviaD1 = this.frmPeliculas.get('obraPreviaD1').value;
+      let obraPreviaD2 = this.frmPeliculas.get('obraPreviaD2').value;
+      let obraPreviaD3 = this.frmPeliculas.get('obraPreviaD3').value;
+      let obraPreviaP1 = this.frmPeliculas.get('obraPreviaP1').value;
+      let obraPreviaP2 = this.frmPeliculas.get('obraPreviaP2').value;
+      let obraPreviaP3 = this.frmPeliculas.get('obraPreviaP3').value;
+      let obraPreviaA1 = this.frmPeliculas.get('obraPreviaA1').value;
+      let obraPreviaA2 = this.frmPeliculas.get('obraPreviaA2').value;
+      let obraPreviaA3 = this.frmPeliculas.get('obraPreviaA3').value;
+      this.PromedioD = obraPreviaD1+obraPreviaD2+obraPreviaD3;
+      this.PromedioP = obraPreviaP1+obraPreviaP2+obraPreviaP3;
+      this.PromedioA = obraPreviaA1+obraPreviaA2+obraPreviaA3;
+      promedio = (this.PromedioD+this.PromedioP+this.PromedioA)/this.numtotal;
+      this.PromedioTotal= parseFloat(promedio.toFixed(1));
+
   }
 
   ngOnInit() {
